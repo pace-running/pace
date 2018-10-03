@@ -2,7 +2,7 @@
 
 Pace is a registration and management application for running events and competitions.
 
-[![Build Status](https://travis-ci.org/lplotni/pace.svg?branch=master)](https://travis-ci.org/lplotni/pace)
+[![Build Status](https://travis-ci.org/pace-running/pace.svg?branch=master<Paste>)](https://travis-ci.org/pace-running/pace)
 [![Join the chat at https://gitter.im/lplotni/pace](https://badges.gitter.im/lplotni/pace.svg)](https://gitter.im/lplotni/pace?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lplotni/pace.svg)](https://greenkeeper.io/)
 
@@ -20,7 +20,7 @@ Pace will be reachable under [http://localhost:3000](http://localhost:3000).
 Currently we have following containers:
 * **db** which provides postgres
 * **redis** for messaging between pace components
-* **pace-pdf** for PDF generation 
+* **pace-pdf** for PDF generation
 * **pace-app** running the express pace app
 
 *If you don't have docker on you machine, just follow this instructions for a [mac](https://docs.docker.com/engine/installation/mac/), or this for [linux](https://docs.docker.com/engine/installation/linux/).*
