@@ -1,8 +1,8 @@
 const paceConfiguration = require('config')
 const Pool = require('pg').Pool;
 const crypto = require('crypto');
-const participant = require('../../../domain/participant');
-const participants = require('../../../service/participants');
+const participant = require('../../domain/participant');
+const participants = require('../../service/participants');
 
 let createUser = () => {
   let randomString = crypto.randomBytes(8).toString('hex');

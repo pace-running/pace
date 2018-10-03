@@ -59,7 +59,7 @@ function runTests(allFilesPatterns) {
 }
 
 gulp.task('test', function () {
-  return runTests(['spec/**/*.js', '!spec/**/*IT*.js', '!spec/**/*Journey.js'])
+  return runTests(['spec/**/*.js', '!spec/**/*IT*.js', '!spec/**/*Journey.js', '!spec/journey/*.js'])
     .once('error', () => process.exit(1))
     .once('end', () => process.exit(0));
 });

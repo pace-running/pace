@@ -4,6 +4,8 @@ addons:
   chrome: stable
 services:
 - docker
+env:
+- CI=1
 before_install:
 - sudo service postgresql stop
 - node --version
