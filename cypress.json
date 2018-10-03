@@ -1,0 +1,7 @@
+{
+  "integrationFolder": "spec/journey",
+  "baseUrl": "http://localhost:3000",
+  "supportFile": "spec/cypress/support",
+  "pluginsFile": "spec/cypress/plugins"
+}
+

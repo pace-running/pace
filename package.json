@@ -1,10 +1,12 @@
-  {
+{
   "name": "pace",
   "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "gulp test && gulp test-integration && gulp test-functional"
+    "test": "gulp test && gulp test-integration && gulp test-functional",
+    "cypress": "$(npm bin)/cypress run --config video=false",
+    "cypress-local": "$(npm bin)/cypress open"
   },
   "engines": {
     "node": "7.7.1"
@@ -36,6 +38,7 @@
     "passport-local": "~1.0.0",
     "pdfkit": "~0.8.2",
     "pg": "^7.4.3",
+    "pg-native": "^3.0.0",
     "pug": "^2.0.3",
     "q": "^1.4.1",
     "qr-image": "~3.2.0",
@@ -47,6 +50,7 @@
     "ws": "^6.0.0"
   },
   "devDependencies": {
+    "cypress": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-jasmine": "^4.0.0",
     "gulp-jshint": "^2.0.3",
