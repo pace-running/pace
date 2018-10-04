@@ -47,9 +47,3 @@ version.sha
 #Ignoring ctags file
 /tags
 
-#Ignore Terraform files
-terraform/out.plan
-.terraform
-*.tfstate
-*.tfstate.*.backup
-*.tfstate.backup
