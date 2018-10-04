@@ -50,6 +50,7 @@ module.exports = (on, config) => {
           .then(() => client.query('delete from tshirts'))
           .then(() => client.query('delete from participants'))
           .then(() => client.query('delete from race'))
+          .then(() => client.query("insert into race (data) values ('{\"is_closed\": false}');"))
           .then(() => client.query('delete from startblocks;'))
           .then(() => client.release())
         }).catch((err) => {
