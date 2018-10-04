@@ -66,7 +66,7 @@ context('Registration', () => {
   })
 });
 
-context('edit user', () => {
+context('user management', () => {
   beforeEach( () => {
     cy.login();
     cy.task('resetDb');
@@ -80,6 +80,14 @@ context('edit user', () => {
     .should('have.value', 'Friedrich')
     .get('input#lastname')
     .should('have.value', 'Schiller')
+  })
+  it('should delete user', () => {
+    cy.task('validUser');
+    cy.visit('/admin/participants')
+      .get('button#delete-user')
+      .click()
+      .get('button#delete-user')
+      .should('not.exist')
   })
 });
 
