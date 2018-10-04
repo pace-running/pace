@@ -3,6 +3,8 @@ const Pool = require('pg').Pool;
 const crypto = require('crypto');
 const participant = require('../../domain/participant');
 const participants = require('../../service/participants');
+const couponcodes = require('../../service/couponcodes');
+const registration = require('../../service/registration');
 
 let createUser = () => {
   let randomString = crypto.randomBytes(8).toString('hex');
@@ -25,6 +27,18 @@ module.exports = (on, config) => {
     validUser () {
       return createUser()
     },
+    couponcode () {
+     return couponcodes.create()
+    },
+    registration (status) {
+      if (status === 'close') {
+        return registration.close();
+      }
+      else {
+        return registration.reopen();
+      }
+
+    },
     getConfig (key) {
       return paceConfiguration.get(key);
     },
@@ -35,6 +49,7 @@ module.exports = (on, config) => {
           client.query('delete from couponcodes')
           .then(() => client.query('delete from tshirts'))
           .then(() => client.query('delete from participants'))
+          .then(() => client.query('delete from race'))
           .then(() => client.query('delete from startblocks;'))
           .then(() => client.release())
         }).catch((err) => {
