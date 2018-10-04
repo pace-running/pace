@@ -47,3 +47,4 @@ version.sha
 #Ignoring ctags file
 /tags
 
+/cypress/videos
