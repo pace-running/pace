@@ -48,3 +48,4 @@ version.sha
 /tags
 
 /cypress/videos
+/cypress/screenshots
