@@ -10,6 +10,10 @@ context('participant edits themself', () => {
     });
     cy.visit('/editparticipant/secureIdForTheEditLink')
       .get('input#firstname')
+      .should('have.value','Friedrich')
+      .get('input#lastname')
+      .should('have.value','Schiller')
+      .get('p#startNumber')
       .should('exist')
   });
 });
