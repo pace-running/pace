@@ -20,21 +20,10 @@ participant.invalidData = (body) => {
   }
 };
 
-participant.invalidYear = (birthyear) => {
-  const isNumber = _.isFinite(_.toNumber(birthyear));
-  const isPresent = !_.isUndefined(birthyear) && !_.isEmpty(birthyear);
-  const greaterZero = _.toNumber(birthyear) > 0;
-
-  return isPresent && (!isNumber || !greaterZero);
-};
 
 participant.from = (body) => {
   if (participant.invalidData(body)) {
     throw new TypeError('Required attributes are not present');
-  }
-
-  if (participant.invalidYear(body.birthyear)) {
-    throw new TypeError(`Malformed year-of-birth: '${body.birthyear}'. Please provide a 4 digit number i.e. '1969'`);
   }
 
   let p = {
