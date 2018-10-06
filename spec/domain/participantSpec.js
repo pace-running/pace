@@ -127,22 +127,6 @@ describe('participant', () => {
 
         expect(callWithNoVisibility).toThrow();
       });
-
-      it('should throw an error if negative birthyear is given', () => {
-        function callWithNegativeBirthyear() {
-          participant.from(_.set(_.cloneDeep(validBody), 'birthyear', '-1990'));
-        }
-
-        expect(callWithNegativeBirthyear).toThrow();
-      });
-
-      it('should throw an error if whole date is given instead of year', () => {
-        function callWithFullDate() {
-          participant.from(_.set(_.cloneDeep(validBody), 'birthyear', '02-12-1990'));
-        }
-
-        expect(callWithFullDate).toThrow();
-      });
     });
   });
 

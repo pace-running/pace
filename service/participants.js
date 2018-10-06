@@ -343,7 +343,7 @@ participants.confirm_result = (secureId) => {
       if (result < 1) {
         throw new Error('Es konnte kein Teilnehmer mit ID: ' + secureId + ' gefunden werden.');
       }
-      return secureId;
+      return participants.get.bySecureId(secureId);
     });
 };
 

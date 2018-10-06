@@ -23,7 +23,7 @@ router.get('/:secureId', isAdmin, (req, res) => {
 
 router.post('/', isAdmin, (req, res) => {
   participants.update(participant.from(req.body), req.body.participantid)
-    .then(() => res.render('participants/success', {name: req.body.firstname + ' ' + req.body.lastname}))
+    .then(() => res.redirect('/admin/participants'))
     .catch(() => res.render('error', {
       message: "Es ist ein Fehler aufgetreten",
       error: {status: "Bitte versuche es nochmal"}
