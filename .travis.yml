@@ -10,9 +10,10 @@ before_install:
 - sudo service postgresql stop
 - node --version
 before_script:
-- docker-compose up -d
 - npm install -g gulp
 - gulp create-version-sha
+- docker-compose up -d
+- sleep 5
 - gulp create-pace-db
 script:
 - "./run_all_tests.sh"
