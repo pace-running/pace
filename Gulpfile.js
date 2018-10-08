@@ -7,7 +7,6 @@ const gulp = require('gulp');
 const jasmine = require('gulp-jasmine');
 const jshint = require('gulp-jshint');
 const shell = require('gulp-shell');
-const selenium = require('selenium-standalone');
 const gutil = require('gulp-util');
 const argv = require('yargs').argv;
 const Q = require('q');
@@ -35,21 +34,6 @@ function testFunctional(pathToTest) {
   return deferred.promise;
 }
 
-function startSelenium() {
-  let deferred = Q.defer();
-  selenium.start((err, child) => {
-    if (err) {
-      gutil.log(err);
-      deferred.reject(err);
-    } else {
-      selenium.child = child;
-      deferred.resolve(selenium.child);
-    }
-  });
-
-  return deferred.promise;
-}
-
 function runTests(allFilesPatterns) {
   if (argv.singleT) {
     return gulp.src([argv.singleT]).pipe(jasmine({verbose: true}));
@@ -70,39 +54,13 @@ gulp.task('test-integration', function () {
     .once('end', () => process.exit(0));
 });
 
-gulp.task('selenium-install', function (done) {
-  selenium.install({}, (err) => {
-    if (err) {
-      gutil.log(err);
-    }
-    done();
-  });
+gulp.task('test-api', function () {
+  return runTests('spec/apiJourney.js')
+    .once('error', () => process.exit(1))
+    .once('end', () => process.exit(0));
 });
 
-gulp.task('test-functional', function () {
-  let deferred = Q.defer();
 
-  deferred.promise.then(() => {
-    process.exit(0);
-  }).fail(() => {
-    process.exit(1);
-  });
-
-  function cleanUp(selenium, done) {
-    gutil.log('Clean-up: ', gutil.colors.magenta('selenium'));
-    selenium.kill();
-    done();
-  }
-
-  startSelenium().then((selenium) => {
-    testFunctional(argv.single).then(() => {
-      cleanUp(selenium, deferred.resolve);
-    }).fail((e) => {
-      gutil.log(e);
-      cleanUp(selenium, deferred.reject);
-    });
-  });
-});
 
 gulp.task('create-version-sha', () => {
   const sha = process.env.TRAVIS_COMMIT || "local-dev";

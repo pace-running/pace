@@ -3,7 +3,6 @@
 /* global jasmine */
 'use strict';
 
-const webdriverio = require('webdriverio');
 const Pool = require('pg').Pool;
 let pool;
 
@@ -23,10 +22,6 @@ journeyHelper.paceUrl = process.env.PACE_URL || 'http://localhost:3000/';
 
 journeyHelper.getPaceWsUrl = (path) => {
   return journeyHelper.paceUrl.replace('http', 'ws') + path;
-};
-
-journeyHelper.setUpClient = function (done) {
-  return webdriverio.remote(options).init(done);
 };
 
 journeyHelper.changeOriginalTimeout = function () {
