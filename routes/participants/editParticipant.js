@@ -3,6 +3,7 @@
 'use strict';
 
 const router = require('express').Router();
+const config = require('config');
 const participants = require('../../service/participants');
 const race = require('../../service/race');
 const participant = require('../../domain/participant');
@@ -11,8 +12,7 @@ const editUrlHelper = require('../../domain/editUrlHelper');
 router.get('/:secureId', (req, res) => {
   const participantId = req.params.secureId;
     participants.get.bySecureId(participantId)
-      .then(()=> participants.confirm_result(participantId))
-      .then(p => res.render('participants/editParticipant', {participant: p, participantid: participantId}))
+      .then(p => res.render('participants/editParticipant', {participant: p, participantid: participantId, teamEvent: config.get('teamEvent')}))
       .catch(() =>
         res.render('error', {
           message: "Teilnehmer nicht bekannt",

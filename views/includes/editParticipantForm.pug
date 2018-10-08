@@ -5,8 +5,9 @@ form#editParticipantForm(method='POST', action=formAction)
       label(for='firstname') Vorname:
       input#firstname.u-full-width(type='text', name='firstname', value=participant.firstname)
     .six.columns.padding
-      label(for='lastname') Nachname:
-      input#lastname.u-full-width(type='text', name='lastname', value=participant.lastname)
+      if !teamEvent
+          label(for='lastname') Nachname:
+          input#lastname.u-full-width(type='text', name='lastname', value=participant.lastname)
   .row
     .twelve.columns.padding
       label(for='category') In welcher Ergebnisliste möchtest du erscheinen?
@@ -14,9 +15,10 @@ form#editParticipantForm(method='POST', action=formAction)
         option(value='m' selected=(participant.category === 'm')) m
         option(value='f' selected=(participant.category === 'f')) f
   .row
-    .twelve.columns.padding
-      label(for='birthyear') Geburtsjahr:
-      input#birthyear.u-full-width(type='number', name='birthyear', value=participant.birthyear)
+    if !teamEvent
+        .twelve.columns.padding
+          label(for='birthyear') Geburtsjahr:
+          input#birthyear.u-full-width(type='number', name='birthyear', value=participant.birthyear)
   .row
     .twelve.columns.padding
       label(for='email') Email:
@@ -32,17 +34,19 @@ form#editParticipantForm(method='POST', action=formAction)
         option(value='yes', selected=(participant.visibility === 'yes')) Ja
         option(value='no', selected=(participant.visibility === 'no')) Nein
   .row
-    .twelve.columns.padding
-      label(for='goal') Wie schnell bist du unterwegs?
-      select#goal.u-full-width(name='goal', required=true)
-        option(value='moderate', selected=(participant.goal === 'moderate')) Ich laufe gerne und regelmäßig / Die Zeit ist mir nicht so wichtig.
-        option(value='relaxed', selected=(participant.goal === 'relaxed')) Ich möchte gerne mitlaufen, aber ohne Stress in ruhigem Tempo.
-        option(value='ambitious', selected=(participant.goal === 'ambitiousshould store and read participants')) Ich möchte schnell und sportlich laufen / Die Zeit ist mir wichtig.
+    if !teamEvent
+        .twelve.columns.padding
+          label(for='goal') Wie schnell bist du unterwegs?
+          select#goal.u-full-width(name='goal', required=true)
+            option(value='moderate', selected=(participant.goal === 'moderate')) Ich laufe gerne und regelmäßig / Die Zeit ist mir nicht so wichtig.
+            option(value='relaxed', selected=(participant.goal === 'relaxed')) Ich möchte gerne mitlaufen, aber ohne Stress in ruhigem Tempo.
+            option(value='ambitious', selected=(participant.goal === 'ambitiousshould store and read participants')) Ich möchte schnell und sportlich laufen / Die Zeit ist mir wichtig.
 
   .row
-    .six.columns.padding
-      label Dein Startblock:
-      p#startBlock #{participant.start_block}
+    if !teamEvent
+        .six.columns.padding
+          label Dein Startblock:
+          p#startBlock #{participant.start_block}
   .row
     .six.columns.padding
       label Deine Startnummer:
