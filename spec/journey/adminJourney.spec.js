@@ -71,6 +71,14 @@ context('user management', () => {
     cy.login();
     cy.task('resetDb');
   });
+  it('should show userlist', () => {
+    cy.task('validUser');
+    cy.visit('admin/participants')
+      .get('td.first-name')
+      .get('td#amount')
+      .should('contain','10')
+
+  });
   it('should edit user', () => {
     cy.task('validUser');
     cy.visit('admin/participants')
@@ -88,6 +96,14 @@ context('user management', () => {
       .click()
       .get('button#delete-user')
       .should('not.exist')
+  })
+  it('should confirm user', () => {
+    cy.task('validUser');
+    cy.visit('/admin/participants')
+      .get('button#confirm-registration')
+      .click()
+      .get('#confirm-registration-done')
+      .should('exist')
   })
 });
 
