@@ -6,8 +6,9 @@ WORKDIR /usr/src/app
 
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
+ENV CI 1
 COPY package.json /usr/src/app/
-RUN npm install
+RUN npm install --only=production
 COPY . /usr/src/app
 
 EXPOSE 3000

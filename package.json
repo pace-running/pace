@@ -1,10 +1,12 @@
-  {
+{
   "name": "pace",
   "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "gulp test && gulp test-integration && gulp test-functional"
+    "test": "gulp test && gulp test-integration && gulp test-functional",
+    "cypress": "$(npm bin)/cypress run --config video=false",
+    "cypress-local": "$(npm bin)/cypress open"
   },
   "engines": {
     "node": "7.7.1"
@@ -47,6 +49,7 @@
     "ws": "^6.0.0"
   },
   "devDependencies": {
+    "cypress": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-jasmine": "^4.0.0",
     "gulp-jshint": "^2.0.3",
@@ -56,9 +59,6 @@
     "jshint-stylish": "^2.2.1",
     "mockery": "^2.0.0",
     "request": "^2.87.0",
-    "selenium-standalone": "^6.15.1",
-    "wdio-jasmine-framework": "^5.0.0-alpha.7",
-    "webdriverio": "=3.4.0",
     "yargs": "^12.0.1"
   },
   "greenkeeper": {

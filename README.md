@@ -47,7 +47,6 @@ To decouple our services we use [Redis](https://redis.io/) as the message broker
 Pace-App is currently based on [express.js](http://expressjs.com/) and [node](https://nodejs.org), therefore you will need both on your machine.
 * To install node, we recommend to use *nvm*. Look [here](https://github.com/creationix/nvm) for instructions.
 * To get all the other dependencies and be able to start **pace** locally, just navigate to the pace folder and run: `npm install`
-* To install selenium: `gulp selenium-install`
 
 ### Pace-Pdf
 Service generating our PDFs. Look at [pace-pdf](https://github.com/lplotni/pace/tree/master/pace-pdf)
@@ -60,10 +59,10 @@ For **unit** tests: `gulp test`
 
 For **integration** tests: `gulp test-integration`
 
-For **functional** tests: `gulp test-functional` (install **selenium** if needed: `gulp selenium-install`)
-
 To execute just a single spec, just pass `--single=/path/to/yourSpec.js` as
 additional argument.
+
+For **functional** tests: `npm run cypress`
 
 #### Running jshint
 Here you go: `gulp lint`
