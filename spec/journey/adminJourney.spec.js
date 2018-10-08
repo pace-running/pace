@@ -107,28 +107,4 @@ context('user management', () => {
   })
 });
 
-context('startblock', () => {
-  beforeEach( () => {
-    cy.login();
-    cy.task('resetDb');
-  });
-  it('should be able to define color,name and start time of a block', () => {
-    cy.visit('admin/after')
-    cy.get('input#color0')
-      .type('#cafe00')
-      .get('input#name0')
-      .type('Startblock Rot')
-      .get('input#hours0')
-      .type('10')
-      .get('input#minutes0')
-      .type('15')
-      .get('input#seconds0')
-      .type('10')
-      .get('button#set_race_starttime')
-      .click()
-      .get('input#name1')
-      .should('have.value', 'Startblock Rot')
-      .get('input#hours1')
-      .should('have.value', '10')
-  })
-})
+

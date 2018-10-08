@@ -170,6 +170,11 @@ participants.delete = (participantid) => {
   return db.delete('delete from participants where id=$1', [participantid]);
 };
 
+participants.setSeconds = (seconds,secureid) => {
+  console.log('setting seconds to %s',seconds);
+  return db.update('update participants set seconds=$1 where secureid=$2', [seconds,secureid])
+}
+
 participants.update = (participant, secureid) => {
   return db.update(`UPDATE participants SET
                     (firstname, lastname, email, category, birthyear, team, visibility, goal) =

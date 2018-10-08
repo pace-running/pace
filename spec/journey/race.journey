@@ -1,0 +1,52 @@
+context('startblock', () => {
+  beforeEach( () => {
+    cy.login();
+    cy.task('resetDb');
+  });
+  it('should be able to define color,name and start time of a block', () => {
+    cy.visit('admin/after')
+    cy.get('input#color0')
+      .type('#cafe00')
+      .get('input#name0')
+      .type('Startblock Rot')
+      .get('input#hours0')
+      .type('10')
+      .get('input#minutes0')
+      .type('15')
+      .get('input#seconds0')
+      .type('10')
+      .get('button#set_race_starttime')
+      .click()
+      .get('input#name1')
+      .should('have.value', 'Startblock Rot')
+      .get('input#hours1')
+      .should('have.value', '10')
+  })
+})
+context('editing result times', () => {
+  it('allows admin to edit any users time', () => {
+      cy.task('validUser');
+      cy.login();
+      cy.visit('/admin/editparticipant/secureIdForTheEditLink')
+      .get('input#calc_seconds')
+      .type('39')
+      .get('input#minutes')
+      .type('1')
+      .get('input#hours')
+      .type('2')
+      .get('button#submit')
+      .click()
+      cy.visit('/admin/editparticipant/secureIdForTheEditLink')
+      .get('input#calc_seconds')
+      .should('have.value','39')
+      .get('input#minutes')
+      .should('have.value','1')
+      .get('input#hours')
+      .should('have.value','2')
+    });
+  it('does not allow normal users to edit their time', () => {
+    cy.visit('/editparticipant/secureIdForTheEditLink')
+      .get('input#calc_seconds')
+      .should('not.exist')
+  });
+});

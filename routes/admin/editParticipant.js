@@ -13,7 +13,7 @@ const isAdmin = require('../../acl/authentication');
 router.get('/:secureId', isAdmin, (req, res) => {
   const participantId = req.params.secureId;
     participants.get.bySecureId(participantId)
-      .then(p => res.render('admin/participants/editParticipant', {participant: p, participantid: participantId, teamEvent: config.get('teamEvent')}))
+      .then(p => res.render('admin/participants/editParticipant', {participant: p, participantid: participantId, teamEvent: config.get('teamEvent'), isAdmin: true}))
       .catch(() =>
         res.render('error', {
           message: "Teilnehmer nicht bekannt",
@@ -24,6 +24,7 @@ router.get('/:secureId', isAdmin, (req, res) => {
 
 router.post('/', isAdmin, (req, res) => {
   participants.update(participant.from(req.body), req.body.participantid)
+    .then(() => { participants.setSeconds(req.body.seconds, req.body.participantid)})
     .then(() => res.redirect('/admin/participants'))
     .catch(() => res.render('error', {
       message: "Es ist ein Fehler aufgetreten",
