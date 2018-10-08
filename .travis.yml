@@ -13,7 +13,7 @@ before_script:
 - npm install -g gulp
 - gulp create-version-sha
 - docker-compose up -d
-- sleep 5
+- (cd pace-pdf;npm install)
 - gulp create-pace-db
 script:
 - "./run_all_tests.sh"
