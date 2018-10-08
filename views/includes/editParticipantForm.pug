@@ -14,6 +14,8 @@ form#editParticipantForm(method='POST', action=formAction)
       select#category.u-full-width(name='category')
         option(value='m' selected=(participant.category === 'm')) m
         option(value='f' selected=(participant.category === 'f')) f
+        if teamEvent
+            option(value='mixed' selected=(participant.category === 'mixed')) mixed
   .row
     if !teamEvent
         .twelve.columns.padding
