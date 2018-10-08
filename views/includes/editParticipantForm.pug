@@ -1,3 +1,4 @@
+script(src='/javascript/moment.min.js')
 h1 Angaben ändern
 form#editParticipantForm(method='POST', action=formAction)
   .row
@@ -53,6 +54,32 @@ form#editParticipantForm(method='POST', action=formAction)
     .six.columns.padding
       label Deine Startnummer:
       p#startNumber #{participant.start_number}
+
+  .row.seconds
+    if isAdmin
+      .six.columns.padding
+        label Deine Zeit
+          input(type="text", size="2", name="hours" id="hours")
+          span :
+          input(type="text", size="2", name="minutes" id="minutes")
+          span :
+          input(type="text", size="2", name="calc_seconds" id="calc_seconds")
+          script(type='text/javascript').
+            $('form#editParticipantForm').submit( (event) => {
+                let seconds = moment.duration({
+                  hours: $('input#hours').val(),
+                  minutes: $('input#minutes').val(),
+                  seconds: $('input#calc_seconds').val()
+                })/1000
+                let $seconds_input = $( "<input id='seconds' name='seconds' type=hidden value=" + seconds + "></input>" )
+                $('div.seconds').append($seconds_input)
+            });
+          if participant.seconds
+            script(type='text/javascript').
+              s=moment.duration(#{participant.seconds},'seconds')
+              $('input#hours').val(s.hours())
+              $('input#minutes').val(s.minutes())
+              $('input#calc_seconds').val(s.seconds())
   .row
     .twelve.columns.padding
       label Zahlungsstatus:
