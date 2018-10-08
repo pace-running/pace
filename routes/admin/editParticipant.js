@@ -3,6 +3,7 @@
 'use strict';
 
 const router = require('express').Router();
+const config = require('config');
 const participants = require('../../service/participants');
 const race = require('../../service/race');
 const participant = require('../../domain/participant');
@@ -12,7 +13,7 @@ const isAdmin = require('../../acl/authentication');
 router.get('/:secureId', isAdmin, (req, res) => {
   const participantId = req.params.secureId;
     participants.get.bySecureId(participantId)
-      .then(p => res.render('admin/participants/editParticipant', {participant: p, participantid: participantId}))
+      .then(p => res.render('admin/participants/editParticipant', {participant: p, participantid: participantId, teamEvent: config.get('teamEvent')}))
       .catch(() =>
         res.render('error', {
           message: "Teilnehmer nicht bekannt",
