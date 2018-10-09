@@ -1,10 +1,8 @@
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, spyOn, it, expect, fail, jasmine */
+/* global describe, beforeEach, it, expect, jasmine */
 'use strict';
 const mockery = require('mockery');
 const Q = require('q');
-const participant = require('../../domain/participant');
 
 
 describe('couponcode service', () => {
@@ -14,7 +12,6 @@ describe('couponcode service', () => {
 
   describe('start()', () => {
     let couponcodes;
-    const secureId = 'secureId';
 
 
     beforeEach(() => {
@@ -55,7 +52,7 @@ describe('couponcode service', () => {
     });
 
     it('should get all codes', (done) => {
-      couponcodes.getAll().then(couponcodeList => {
+      couponcodes.getAll().then( () => {
         expect(dbHelperMock.select).toHaveBeenCalledWith('SELECT * FROM couponcodes');
         done();
       }).catch(done.fail);
@@ -63,7 +60,7 @@ describe('couponcode service', () => {
 
     it('should mark as used', (done) => {
       let couponcode = '123';
-      couponcodes.markAsUsed(couponcode).then(result => {
+      couponcodes.markAsUsed(couponcode).then( () => {
         expect(dbHelperMock.update).toHaveBeenCalledWith('UPDATE couponcodes SET used=$1 WHERE code=$2 ', [true, couponcode]);
         done();
       }).catch(done.fail);

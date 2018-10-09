@@ -1,19 +1,5 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
-const winston = require('winston');
-const logger = new (winston.Logger)({
-  transports: [
-    new (winston.transports.Console)({
-      timestamp: () => new Date().toISOString(),
-      formatter: (options) => {
-        return options.timestamp() + ' ' + options.level.toUpperCase() + ' ' + (options.message ? options.message : '') +
-          (options.meta && Object.keys(options.meta).length ? '\n\t' + JSON.stringify(options.meta) : '' );
-      }
-    })
-  ]
-});
-
 const _ = require('lodash');
 const Q = require('q');
 const moment = require('moment');
@@ -55,7 +41,7 @@ pdfGeneration.generateStartNumbers = (redis) => {
     .then(getParticipants)
     .then((participants) => {
         let msgs = participants.map(pdfGeneration.extractData);
-        logger.info(`[GENERATE START NUMBERS] about to publish ${msgs.length} messages to pace-pdf`);
+        console.log(`[GENERATE START NUMBERS] about to publish %s messages to pace-pdf`,msgs.length );
         _.forEach(msgs, m => redis.publish('pace-pdf', m));
       }
     );

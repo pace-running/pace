@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 const dbm = global.dbm || require('db-migrate');

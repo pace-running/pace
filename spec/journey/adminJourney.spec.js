@@ -1,3 +1,4 @@
+/* global cy, context, it, beforeEach, expect */
 context('Not logged in', () => {
   it('should redirect to the login page', () => {
     cy.visit('/admin')

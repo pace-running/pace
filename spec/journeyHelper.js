@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 /* global jasmine */
 'use strict';
 
@@ -7,14 +6,6 @@ const Pool = require('pg').Pool;
 let pool;
 
 let originalTimeout;
-
-let options = {
-  desiredCapabilities: {
-    browserName: 'chrome',
-    chromeOptions: {
-      args: ['headless','disable-gpu']}
-  }
-};
 
 let journeyHelper = {};
 

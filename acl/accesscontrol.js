@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 var rbac2 = require('rbac2');

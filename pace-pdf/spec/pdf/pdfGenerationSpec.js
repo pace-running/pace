@@ -1,6 +1,5 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
 /* global jasmine, describe, it, expect, beforeEach, afterAll, spyOn */
 
 const mockery = require('mockery');

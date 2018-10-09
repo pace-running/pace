@@ -13,19 +13,19 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "config": "^2.0.1",
+    "config": "^2.0.0",
     "connect-flash": "~0.1.1 ",
     "connect-redis": "^3.3.3",
     "cryptico": "~1.0.2",
     "csurf": "^1.9.0",
     "db-migrate": "~0.11.0",
     "db-migrate-pg": "^0.4.0",
-    "debug": "~4.1.0",
+    "debug": "~3.2.1",
     "express": "~5.0.0-alpha.6",
     "express-metrics": "^1.1.0",
     "express-session": "~1.15.6",
     "fast-csv": "^2.3.0",
-    "ioredis": "^4.0.2",
+    "ioredis": "^4.0.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
@@ -45,7 +45,6 @@
     "rescode": "~0.1.10",
     "serve-favicon": "~2.5.0",
     "validator": "^10.0.0",
-    "winston": "^3.1.0",
     "ws": "^6.0.0"
   },
   "devDependencies": {
@@ -59,7 +58,7 @@
     "jshint-stylish": "^2.2.1",
     "mockery": "^2.0.0",
     "request": "^2.87.0",
-    "yargs": "^12.0.2"
+    "yargs": "^12.0.1"
   },
   "greenkeeper": {
     "ignore": [

@@ -1,7 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeAll, afterAll, spyOn, it, expect, fail, jasmine */
+/* global describe, beforeAll, it, expect, jasmine */
 
 describe('websocket', () => {
 

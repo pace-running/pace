@@ -1,7 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, spyOn, it, expect, fail */
+/* global describe, beforeEach, it, expect */
 
 describe('startblock service', () => {
 

@@ -1,7 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeAll, afterAll, it, expect, fail */
+/* global describe, beforeAll, afterAll, it, expect */
 
 describe('race service', () => {
 

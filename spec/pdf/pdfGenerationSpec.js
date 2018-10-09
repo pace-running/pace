@@ -1,12 +1,9 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global jasmine, describe, it, xit, expect, beforeEach, afterAll, spyOn */
+/* global jasmine, describe, it, expect, beforeEach, afterAll*/
 
 const mockery = require('mockery');
 const Q = require('q');
-const _ = require('lodash');
-const config = require('config');
 
 describe('pdfGeneration', () => {
 

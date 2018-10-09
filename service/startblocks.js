@@ -1,10 +1,7 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 const db = require('../service/util/dbHelper');
-const participants = require('../service/participants');
 const moment = require('moment');
-const Q = require('q');
 const _ = require('lodash');
 
 const defaultColor = '#FFFFFF';

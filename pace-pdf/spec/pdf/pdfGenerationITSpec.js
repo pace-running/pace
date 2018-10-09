@@ -1,6 +1,5 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
 /* global jasmine, describe, it, expect, afterAll, beforeEach, fail */
 const pdfGeneration = require('../../pdf/pdfGeneration');
 const config = require('config');

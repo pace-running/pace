@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 const Q = require('q');
@@ -121,7 +120,7 @@ participants.saveBlancParticipants = (amount) => {
   });
 };
 
-participants.choseStartBlock = (startNumber) => { //move this out of here TODO
+participants.choseStartBlock = () => { //move this out of here TODO
   return null;
 };
 
@@ -295,7 +294,7 @@ participants.getTime = (startnumber) => {
 participants.clearTimes = () => {
   const deferred = Q.defer();
   db.select('update participants set time = NULL, seconds = NULL')
-    .then((result) => {
+    .then(() => {
       deferred.resolve();
     })
     .catch(deferred.reject);

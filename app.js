@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 let express = require('express');
@@ -62,7 +61,7 @@ app.use(bodyParser.urlencoded({'extended': true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', apiRoute);
-app.use("/api", function(err, req, res, next){
+app.use("/api", function(err, req, res){
   res.status(err.status || 500);
   res.send({
     message: 'Internal Error'

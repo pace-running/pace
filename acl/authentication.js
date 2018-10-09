@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 let isAuthenticated = function (req, res, next) {

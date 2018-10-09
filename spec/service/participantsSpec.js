@@ -1,9 +1,5 @@
 'use strict';
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, spyOn, it, expect, fail, jasmine */
-const mockery = require('mockery');
-const _ = require('lodash');
-/* jshint node: true */
+/* global require, describe, it, expect */
 
 describe('participants service', () => {
     let participants = require('../../service/participants');
