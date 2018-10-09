@@ -13,26 +13,26 @@
   },
   "dependencies": {
     "archiver": "^3.0.0",
-    "config": "^1.29.1",
+    "config": "^2.0.1",
     "express": "^4.16.3",
-    "ioredis": "^3.2.2",
+    "ioredis": "^4.0.2",
     "jszip": "^3.1.5",
     "lodash": "^4.17.11",
     "pdfkit": "~0.8.0",
     "q": "^1.4.1",
     "qr-image": "~3.2.0",
     "rescode": "~0.1.10",
-    "winston": "^2.3.1"
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "gulp": "^4.0.0",
-    "gulp-jasmine": "^2.4.2",
+    "gulp-jasmine": "^4.0.0",
     "gulp-jshint": "^2.0.3",
     "gulp-shell": "^0.6.1",
     "gulp-util": "^3.0.7",
     "jshint": "^2.9.6",
     "jshint-stylish": "^2.2.1",
     "mockery": "^2.0.0",
-    "yargs": "^7.0.1"
+    "yargs": "^12.0.2"
   }
 }
