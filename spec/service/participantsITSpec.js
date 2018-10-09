@@ -1,7 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, spyOn, it, expect, fail */
+/* global describe, beforeEach, afterEach, afterAll, spyOn, it, expect, fail */
 
 const _ = require('lodash');
 const moment = require('moment');
@@ -30,7 +29,6 @@ describe('participants service', () => {
 
   const participants = require('../../service/participants');
   const tshirts = require('../../service/tshirts');
-  const race = require('../../service/race');
   const startBlocks = require('../../service/startblocks');
   const mails = require('../../service/util/mails');
   const participant = require('../../domain/participant');

@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 const db = require('../service/util/dbHelper');
@@ -8,7 +7,6 @@ const Q = require('q');
 const moment = require('moment');
 require("moment-duration-format");
 const csv = require('fast-csv');
-const timeCalculator = require('../domain/timeCalculator');
 const queryHelper = require('./util/queryHelper');
 
 let race = {};

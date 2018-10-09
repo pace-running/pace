@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 var dbm = global.dbm || require('db-migrate');
 var type = dbm.dataType;

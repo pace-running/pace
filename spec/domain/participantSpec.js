@@ -1,7 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global jasmine, describe, it, expect, afterAll, beforeEach, fail */
+/* global describe, it, expect, beforeEach */
 
 describe('participant', () => {
   const _ = require('lodash');

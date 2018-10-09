@@ -1,3 +1,4 @@
+/* global cy, context, it */
 context('registration', () => {
 
   it('closes and open registration', () => {

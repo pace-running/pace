@@ -1,12 +1,8 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 const router = require('express').Router();
 const participants = require('../../service/participants');
-const race = require('../../service/race');
-const participant = require('../../domain/participant');
-const editUrlHelper = require('../../domain/editUrlHelper');
 
 router.get('/:secureId', (req, res) => {
   const secureId = req.params.secureId;

@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 const router = require('express').Router();
@@ -37,7 +36,7 @@ router.post('/scan',tokenValidator, (req, res) => {
               websocket.updateAllClients(message);
               if (participant.start_block != 0) {
                 mail.askResultConfirmation(participant,seconds);
-              };
+              }
               res.setHeader('Content-Type', 'application/json');
               res.send(JSON.stringify({ status: 'OK' }));
           }
@@ -46,7 +45,7 @@ router.post('/scan',tokenValidator, (req, res) => {
             res.status(200).send(JSON.stringify({ status: 'Not updated' }));
           }
         });
-    }).catch((err) => {
+    }).catch(() => {
     res.setHeader('Content-Type', 'application/json');
     res.status(404).send(JSON.stringify({ status: 'Not Found' }));
   });
@@ -74,7 +73,7 @@ const generateDataTablesResponse = (resultPromise, drawNum, res) => {
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify(ret));
     })
-    .catch((err) => {
+    .catch(() => {
       res.setHeader('Content-Type', 'application/json');
       res.status(404)
         .send(JSON.stringify({ status: 'Not Found' }));

@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 const winston = require('winston');
 const logger = new (winston.Logger)({

@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 const crypto = require('crypto');
 const config = require('config');

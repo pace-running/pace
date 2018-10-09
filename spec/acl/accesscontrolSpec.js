@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 /* global describe, it, expect */
 'use strict';
 

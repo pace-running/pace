@@ -1,7 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, spyOn, it, expect, fail */
+/* global describe, beforeEach, afterAll, it, expect*/
 
 describe('tshirt service', () => {
   const participant = require('../../domain/participant');
@@ -19,7 +18,7 @@ describe('tshirt service', () => {
     discount: 'no',
     team: 'Crazy runners'
   }).withToken('token').withSecureId('someId');
-  
+
   beforeEach((done) => {
     helper.changeOriginalTimeout();
     helper.setupDbConnection(done);

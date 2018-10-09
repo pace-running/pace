@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 const _ = require('lodash');
 const nodemailer = require('nodemailer');

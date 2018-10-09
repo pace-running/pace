@@ -1,16 +1,13 @@
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeAll, beforeEach, afterEach, it, expect, jasmine */
+/* global describe, beforeEach, it, expect, jasmine, xit */
 'use strict';
 
 const WebSocket = require('ws');
 const config = require('config');
-const _ = require('lodash');
 const request = require('request');
 const helper = require('./journeyHelper');
 const participants = require('../service/participants');
 const participant = require('../domain/participant');
-const race = require('../service/race');
 const startBlocks = require('../service/startblocks');
 
 describe('api journey', () => {
@@ -58,7 +55,7 @@ describe('api journey', () => {
             expect(message).toEqual(JSON.stringify({startnumber: "42", name: "Friedrich", time: "00:02:03"}));
             done();
           });
-          request.post({url: url, headers: headers, form: form}, (err, response) => {});
+          request.post({url: url, headers: headers, form: form}, () => {});
         })
         .catch(() => {
           webSocket.close();

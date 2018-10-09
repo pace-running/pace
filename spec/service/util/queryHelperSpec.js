@@ -1,6 +1,5 @@
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, spyOn, it, expect, fail, jasmine */
+/* global describe, it, expect */
 'use strict';
 
 const queryHelper = require('../../../service/util/queryHelper');

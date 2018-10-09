@@ -1,7 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global jasmine, describe, it, expect, beforeEach, spyOn */
+/* global describe, it, expect, spyOn */
 
 const crypto = require('crypto');
 const config = require('config');

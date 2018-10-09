@@ -1,6 +1,5 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
 /* global describe, beforeEach, afterEach, it, expect */
 
 describe('mails service', () => {

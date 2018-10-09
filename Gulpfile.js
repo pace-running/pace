@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 
@@ -11,7 +10,6 @@ const gutil = require('gulp-util');
 const argv = require('yargs').argv;
 const Q = require('q');
 const fs = require('fs');
-
 
 function createdb() {
   if (argv.ci) {
@@ -80,3 +78,18 @@ gulp.task('npm-start', shell.task(["npm start"]));
 gulp.task('default', ['npm-start']);
 
 gulp.task('start-db', shell.task(["docker run -p 5432:5432 -d --name 'pace-postgres' -e POSTGRES_PASSWORD='pgtester' -e POSTGRES_DB='pace' -e POSTGRES_USER='pgtester' postgres:alpine"]));
+
+let jsFiles= ['app.js', './spec/**/*.js', './service/**/*.js', './routes/**/*.js', './domain/**/*.js'];
+
+gulp.task('jshint', function() {
+  var stream = gulp.src(jsFiles)
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
+  return stream;
+});
+
+gulp.task('jshint-watch', ['jshint'], function(cb){
+  console.log('Watching files for changes...');
+  gulp.watch(jsFiles, ['jshint']);
+});
+

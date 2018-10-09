@@ -1,5 +1,4 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 let pdf = require('./pdf/pdfGeneration');
 let pdfRequests = {};

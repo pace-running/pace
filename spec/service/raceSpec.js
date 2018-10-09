@@ -1,9 +1,6 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeAll, afterAll, spyOn, it, expect, fail, jasmine */
-const Q = require('q');
-const moment = require('moment');
+/* global describe, beforeAll, afterAll, it, expect, jasmine */
 const mockery = require('mockery');
 
 describe('race service', () => {

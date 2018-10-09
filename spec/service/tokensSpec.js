@@ -1,11 +1,8 @@
 'use strict';
 /* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, spyOn, it, expect, fail, jasmine */
+/* global describe, beforeEach, afterAll, it, expect, jasmine */
 const mockery = require('mockery');
 const Q = require('q');
-
-const secureId = 'secureId';
 
 describe('token service', () => {
 

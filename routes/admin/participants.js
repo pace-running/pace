@@ -1,10 +1,8 @@
 /* jshint node: true */
-/* jshint esnext: true */
 'use strict';
 
 const Q = require('q');
 const router = require('express').Router();
-const accesscontrol = require('../../acl/accesscontrol');
 const isAuthenticated = require('../../acl/authentication');
 const participants = require('../../service/participants');
 const tshirts = require('../../service/tshirts');

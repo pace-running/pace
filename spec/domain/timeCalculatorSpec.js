@@ -1,7 +1,5 @@
 'use strict';
-/* jshint node: true */
-/* jshint esnext: true */
-/* global describe, beforeEach, afterAll, spyOn, it, expect, fail, jasmine */
+/* global describe, it, expect*/
 const timeCalculator = require('../../domain/timeCalculator');
 const _ = require('lodash');
 const moment = require('moment');
