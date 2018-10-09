@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "pace-pdf/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
