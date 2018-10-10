@@ -1,20 +1,16 @@
 sudo: required
 language: node_js
-addons:
-  chrome: stable
 services:
 - docker
 env:
 - CI=1
 before_install:
 - sudo service postgresql stop
-- node --version
 before_script:
-- npm install -g gulp
-- gulp create-version-sha
+- npx gulp create-version-sha
 - docker-compose up -d
 - (cd pace-pdf;npm install)
-- gulp create-pace-db
+- npx gulp create-pace-db
 script:
 - "./run_all_tests.sh"
 after_success:
