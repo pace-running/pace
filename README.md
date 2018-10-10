@@ -62,7 +62,7 @@ For **integration** tests: `gulp test-integration`
 To execute just a single spec, just pass `--single=/path/to/yourSpec.js` as
 additional argument.
 
-For **functional** tests: `npm run cypress`
+For **functional** tests: `gulp test-functional`
 
 #### Running jshint
 Here you go: `gulp lint`

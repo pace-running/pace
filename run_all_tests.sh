@@ -2,10 +2,12 @@
 
 set -e
 
-gulp lint
-gulp test
-gulp test-integration
-npm run cypress
+GULP='npx gulp'
+
+$GULP lint
+$GULP test
+$GULP test-integration
+$GULP test-functional
 cd pace-pdf/
-gulp test
-gulp test-integration
+$GULP test
+$GULP test-integration
