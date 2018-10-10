@@ -22,7 +22,6 @@
     "db-migrate-pg": "^0.4.0",
     "debug": "~4.1.0",
     "express": "~5.0.0-alpha.6",
-    "express-metrics": "^1.1.0",
     "express-session": "~1.15.6",
     "fast-csv": "^2.3.0",
     "ioredis": "^4.0.0",
