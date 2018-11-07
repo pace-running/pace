@@ -43,7 +43,7 @@
     "rbac2": "~1.1.0",
     "rescode": "~0.1.10",
     "serve-favicon": "~2.5.0",
-    "validator": "^10.0.0",
+    "validator": "10.8.0",
     "ws": "^6.0.0"
   },
   "devDependencies": {
