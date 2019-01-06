@@ -17,11 +17,17 @@ h3 Hey #{name}!
     span.startNumber #{startnr}
 
   h5 Du kannst deine persönlichen Angaben unter folgendem Link* ändern:&nbsp;
-  a#editurl(href=editUrl) Angaben ändern
-  div * Dieser Link gibt Einsicht in persönliche Daten und sollte nicht weitergegeben werden.
+  h5
+    a#editurl(href=editUrl) Angaben ändern
 
+  h3 Achtung! Keine Zeitnahme!
+    h5 Wir werden dieses Jahr KEINE Zeitmessung vornehmen. Das Scannen der Barcodes ist bei so vielen Teilnehmer_innen leider nicht mehr praktikabel.
+      | Wer in der Ergebnisliste erscheinen will oder eine Urkunde haben möchte, kann die Zeit nach dem Lauf auf der
+      | Webseite selber eintragen und erscheint dann automatisch in der Ergebnisliste und die Urkunde kann runtergeladen werden.
+      | Das heisst, Ihr müsst selber wissen wie schnell ihr wart. Für alle, die keine Uhr haben, stehen im Zielbereich grosse Anzeigen bereit, die die Zeit seit dem Start anzeigen.
+
+  div * Dieser Link gibt Einsicht in persönliche Daten und sollte nicht weitergegeben werden.
   if email == ''
     h5(style={color: 'red'})#no-email Du hast keine Email-Adresse angegeben. Bitte speichere den Link wirklich gut. 
-    | Wir haben keine Moeglichkeit dich zu kontaktieren und der Link ist der einzige Weg
-    | deine Daten zu bearbeiten.
+    h5 Wir haben keine Möglichkeit dich zu kontaktieren und der Link ist der einzige Weg deine Daten zu bearbeiten und deine Zeit einzutragen!
      
