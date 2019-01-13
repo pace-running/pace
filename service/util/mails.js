@@ -2,7 +2,6 @@
 'use strict';
 const _ = require('lodash');
 const nodemailer = require('nodemailer');
-const sendmailTransport = require('nodemailer-sendmail-transport');
 const config = require('config');
 const moment = require('moment');
 const pug = require('pug');
