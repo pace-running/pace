@@ -37,5 +37,6 @@
   "cookie-secret":"change this in your local config",
   "proxy":false,
   "https":false,
-  "teamEvent" : false
+  "teamEvent" : false,
+  "mailserver": "smtp://localhost:25?pool=true&ignoreTLS=true"
 }

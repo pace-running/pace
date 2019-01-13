@@ -34,9 +34,8 @@ service.sendEmail = (address, subject, text, error) => {
     if (error) {
       console.error(error);
     } else {
-      let transporter = service._nodemailer.createTransport(sendmailTransport({
-        path: '/usr/sbin/sendmail'
-      }));
+      let poolConfig = config.get("mailserver")
+      let transporter = service._nodemailer.createTransport(poolConfig);
       return transporter.sendMail({
         from: config.get('contact.email'),
         to: address,
