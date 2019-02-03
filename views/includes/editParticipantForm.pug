@@ -41,9 +41,9 @@ form#editParticipantForm(method='POST', action=formAction)
         .twelve.columns.padding
           label(for='goal') Wie schnell bist du unterwegs?
           select#goal.u-full-width(name='goal', required=true)
-            option(value='moderate', selected=(participant.goal === 'moderate')) Ich laufe gerne und regelmäßig / Die Zeit ist mir nicht so wichtig.
-            option(value='relaxed', selected=(participant.goal === 'relaxed')) Ich möchte gerne mitlaufen, aber ohne Stress in ruhigem Tempo.
-            option(value='ambitious', selected=(participant.goal === 'ambitiousshould store and read participants')) Ich möchte schnell und sportlich laufen / Die Zeit ist mir wichtig.
+            option(value='moderate', selected=(participant.goal === 'moderate'?'true':'false')) Ich laufe gerne und regelmäßig / Die Zeit ist mir nicht so wichtig.
+            option(value='relaxed', selected=(participant.goal === 'relaxed'?'true':'false')) Ich möchte gerne mitlaufen, aber ohne Stress in ruhigem Tempo.
+            option(value='ambitious', selected=(participant.goal === 'ambitious'?'true':'false')) Ich möchte schnell und sportlich laufen / Die Zeit ist mir wichtig.
 
   .row
     if !teamEvent
@@ -88,3 +88,5 @@ form#editParticipantForm(method='POST', action=formAction)
   input(type='hidden', name='_csrf', value=_csrf)
 
   button#submit.button-primary.u-full-width(type='submit') Änderung speichern
+
+  p #{participant.goal}
