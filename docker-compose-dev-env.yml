@@ -1,0 +1,24 @@
+db:
+  image: postgres:alpine
+  ports:
+    - "5432:5432"
+  volumes:
+    - pace-db-volume:/var/lib/postgresql/data
+  environment:
+    - POSTGRES_USER=pgtester
+    - POSTGRES_PASSWORD=pgtester
+    - POSTGRES_DB=pace
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
+pace-pdf:
+  build: pace-pdf
+  links:
+    - redis
+  volumes:
+    - data-volume:/pdf
+  environment:
+    - REDISHOST=redis
+  ports:
+    - "3001:3001"

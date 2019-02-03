@@ -25,6 +25,11 @@ Currently we have following containers:
 
 *If you don't have docker on you machine, just follow this instructions for a [mac](https://docs.docker.com/engine/installation/mac/), or this for [linux](https://docs.docker.com/engine/installation/linux/).*
 
+
+#### Starting
+Start all dependencies first: `docker-compose -f docker-compose-dev-env.yml up -d`
+Then run `npx gulp` to start the application and open http://localhost:3000 in your browser.
+
 ### DB
 Pace uses [PostgreSQL](https://www.postgresql.org/) to store its data. To get postgresql running on your machine during development just start the *db container*.
 You can either run this to get the database up:
@@ -51,8 +56,6 @@ Pace-App is currently based on [express.js](http://expressjs.com/) and [node](ht
 ### Pace-Pdf
 Service generating our PDFs. Look at [pace-pdf](https://github.com/lplotni/pace/tree/master/pace-pdf)
 
-#### Starting
-Just run `npx gulp` and open http://localhost:3000 in your browser.
 
 #### Running tests
 For **unit** tests: `npx gulp test`
