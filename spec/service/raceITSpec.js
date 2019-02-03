@@ -37,7 +37,6 @@ describe('race service', () => {
       })
       .withToken('sectoken 1')
       .withStartBlock(0)
-      .withConfirmedResult(false)
       .withStartNr(10);
     const aParticipantWithDifferentCategory = participant.from(aParticipant)
       .with({
@@ -45,7 +44,6 @@ describe('race service', () => {
       })
       .withToken('sectoken 2')
       .withStartBlock(0)
-      .withConfirmedResult(false)
       .withStartNr(11);
     const aParticipantWithDifferentTeam = participant.from(aParticipant)
       .with({
@@ -53,7 +51,6 @@ describe('race service', () => {
       })
       .withToken('sectoken 3')
       .withStartBlock(0)
-      .withConfirmedResult(false)
       .withStartNr(12);
     const aParticipantWithDifferentStartblock = participant.from(aParticipant)
       .with({
@@ -61,7 +58,6 @@ describe('race service', () => {
       })
       .withToken('sectoken 4')
       .withStartBlock(1)
-      .withConfirmedResult(false)
       .withStartNr(13);
     const aConfirmedParticipantWithDifferentStartblock = participant.from(aParticipant)
       .with({
@@ -95,7 +91,6 @@ describe('race service', () => {
         .then(() => participants.save(aConfirmedParticipantWithDifferentStartblock))
         .then(() => participants.insertTime(aConfirmedParticipantWithDifferentStartblock.start_number,
           '10:56:30'))
-        .then(() => participants.confirm_result(aConfirmedParticipantWithDifferentStartblock.secureID))
         .then(done)
         .catch((err) => {
           console.log("err", err);
@@ -103,11 +98,11 @@ describe('race service', () => {
         });
     });
 
-    it('should show the first', (done) => {
+    it('should show the list', (done) => {
       race.results('Unicorn', 1970, 1990)
         .then((result) => {
-          expect(result.length).toBe(4);
-          expect(result[0].timestring).toBe('00:32:02');
+          expect(result.length).toBe(5);
+          expect(result[0].timestring).toBe('00:19:20');
           done();
         })
         .catch(done.fail);
@@ -117,7 +112,7 @@ describe('race service', () => {
       race.resultsForDataTables(0, 2, 'Crazy runn', 'START_NUMBER ASC', 'Unicorn', 1975,
           1985)
         .then((result) => {
-          expect(result.numberOfAllRecords).toBe(3);
+          expect(result.numberOfAllRecords).toBe(4);
           expect(result.numberOfRecordsAfterFilter).toBe(1);
           expect(result.records[0].firstname).toBe('Hertha');
           expect(result.records[0].team).toBe('Crazy runners');

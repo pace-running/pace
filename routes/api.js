@@ -5,7 +5,6 @@ const router = require('express').Router();
 const config = require('config');
 const participants = require('../service/participants');
 const race = require('../service/race');
-const mail = require('../service/util/mails.js')
 const websocket = require('../routes/websocket');
 const timeCalculator = require('../domain/timeCalculator');
 const _ = require('lodash');
@@ -34,9 +33,6 @@ router.post('/scan',tokenValidator, (req, res) => {
                 time: timeCalculator.timeString(seconds)
               };
               websocket.updateAllClients(message);
-              if (participant.start_block != 0) {
-                mail.askResultConfirmation(participant,seconds);
-              }
               res.setHeader('Content-Type', 'application/json');
               res.send(JSON.stringify({ status: 'OK' }));
           }
