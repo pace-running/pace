@@ -44,9 +44,4 @@ context('editing result times', () => {
       .get('input#hours')
       .should('have.value','2')
     });
-  it('does not allow normal users to edit their time', () => {
-    cy.visit('/editparticipant/secureIdForTheEditLink')
-      .get('input#calc_seconds')
-      .should('not.exist')
-  });
 });

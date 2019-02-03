@@ -169,16 +169,11 @@ participants.delete = (participantid) => {
   return db.delete('delete from participants where id=$1', [participantid]);
 };
 
-participants.setSeconds = (seconds,secureid) => {
-  console.log('setting seconds to %s',seconds);
-  return db.update('update participants set seconds=$1 where secureid=$2', [seconds,secureid])
-}
-
 participants.update = (participant, secureid) => {
   return db.update(`UPDATE participants SET
-                    (firstname, lastname, email, category, birthyear, team, visibility, goal) =
-                    ($1, $2, $3, $4, $5, $6, $7, $8)
-                    WHERE secureid = $9`,
+                    (firstname, lastname, email, category, birthyear, team, visibility, goal, seconds) =
+                    ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+                    WHERE secureid = $10`,
     [participant.firstname,
       participant.lastname,
       participant.email,
@@ -187,6 +182,7 @@ participants.update = (participant, secureid) => {
       participant.team,
       participant.visibility,
       participant.goal,
+      participant.seconds,
       secureid])
     .then(() => {
       participants.get.bySecureId(secureid).then(saved_participant => {

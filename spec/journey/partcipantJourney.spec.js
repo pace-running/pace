@@ -123,7 +123,7 @@ context('User registration', () => {
   })
 });
 
-context('participant edits themself', () => {
+context('participant edits themselves', () => {
   it('shows an error when using invalid link', () => {
     cy.visit('/editparticipant/invalidSecureId',{failOnStatusCode: false})
       .get('h1')
@@ -140,5 +140,29 @@ context('participant edits themself', () => {
       .should('have.value','Schiller')
       .get('p#startNumber')
       .should('exist')
+  });
+  it('allows to edit finish time via the self-service-link', () => {
+    cy.task('resetDb').then( () => {
+      cy.task('validUser');
+    });
+    cy.visit('/editparticipant/secureIdForTheEditLink')
+      .get('input#hours')
+      .should('have.value','')
+      .type('00')
+      .get('input#minutes')
+      .should('have.value','')
+      .type('50')
+      .get('input#calc_seconds')
+      .should('have.value','')
+      .type('27')
+      .get('#submit')
+      .click();
+    cy.visit('/editparticipant/secureIdForTheEditLink')
+      .get('input#hours')
+      .should('have.value','0')
+      .get('input#minutes')
+      .should('have.value','50')
+      .get('input#calc_seconds')
+      .should('have.value','27');
   });
 });

@@ -20,7 +20,8 @@ describe('participant', () => {
       shirt: 'Yes',
       model: 'Normal fit',
       size: 'M',
-      goal: 'ambitious'
+      goal: 'ambitious',
+      seconds: '3600'
     };
 
     describe('valid body', () => {
@@ -69,6 +70,10 @@ describe('participant', () => {
 
       it('should extract visibility from the request body', () => {
         expect(parsedParticipant.visibility).toBe('public');
+      });
+
+      it('should extract seconds from the request body', () => {
+        expect(parsedParticipant.seconds).toBe('3600');
       });
     });
 

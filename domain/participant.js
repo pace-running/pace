@@ -36,7 +36,8 @@ participant.from = (body) => {
     birthyear: _.isFinite(_.toNumber(body.birthyear)) ? _.toNumber(body.birthyear) : 0,
     team: body.team,
     tshirt: tshirt.from(body),
-    goal: body.goal
+    goal: body.goal,
+    seconds: body.seconds
   };
 
   p.with = function (property) {
