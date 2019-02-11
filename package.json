@@ -19,7 +19,7 @@
     "cryptico": "~1.0.2",
     "csurf": "^1.9.0",
     "db-migrate": "~0.11.0",
-    "db-migrate-pg": "^0.4.0",
+    "db-migrate-pg": "^0.5.0",
     "debug": "~4.1.0",
     "express": "^5.0.0-alpha.7",
     "express-session": "~1.15.6",
