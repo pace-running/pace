@@ -55,9 +55,19 @@ participants.get.forDataTables = (start, length, search, ordering) => {
 
   return db.selectForDataTables(queries, search);
 };
-
 participants.get.byId = (id) => {
   return db.select('SELECT * FROM participants WHERE id = $1', [id])
+    .then(result => {
+      if (_.isEmpty(result)) {
+        throw new Error('No participant found');
+      }
+      return result;
+    })
+    .then(result => result[0]);
+};
+
+participants.get.byPaymentToken = (token) => {
+  return db.select('SELECT * FROM participants WHERE paymenttoken = $1', [token])
     .then(result => {
       if (_.isEmpty(result)) {
         throw new Error('No participant found');

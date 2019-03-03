@@ -201,6 +201,18 @@ describe('participants service', () => {
     });
   });
 
+  describe('byToken', () => {
+    it('should return a participant given the participant Token', (done) => {
+      let awesomeToken = 'test-token';
+      participants.save(aParticipant.withStartNr(startNr++).withToken(awesomeToken))
+        .then(() => participants.get.byPaymentToken(awesomeToken))
+        .then((participant) => {
+          expect(participant.paymenttoken).toBe(awesomeToken);
+          done();
+        }).catch(done.fail);
+    });
+  });
+
   describe('byStartnumber()', () => {
     it('should return all information of the participant with given Startnumber', (done) => {
       let number = startNr++;
