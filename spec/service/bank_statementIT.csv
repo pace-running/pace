@@ -1,0 +1,15 @@
+Umsatzanzeige;;;;;;;;;;;;
+;;;;;;;;;;;;
+BLZ:;20190000;;Datum:;15.02.2019;;;;;;;;
+Konto:;19000420;;Uhrzeit:;09:27:20;;;;;;;;
+Abfrage von:;Vorname Nachname;;Kontoinhaber:;Fu�ball-Club St. Pauli;;;;;;;;
+;;;;;;;;;;;;
+Zeitraum:;Alle Ums�tze;von:;;bis:;;;;;;;;
+Betrag in EUR:;;von:; ;bis:; ;;;;;;;
+Sortiert nach:;Buchungstag;absteigend;;;;;;;;;;
+;;;;;;;;;;;;
+Buchungstag;Valuta;Auftraggeber/Zahlungsempf�nger;Empf�nger/Zahlungspflichtiger;Konto-Nr.;IBAN;BLZ;BIC;Vorgang/Verwendungszweck;Kundenreferenz;W�hrung;Umsatz;
+15.02.2019;15.02.2019;FC St. Pauli Marathon;Sven Schmidt;;DE00000000000000000000;;GENODEF1HH2;"�berweisungsgutschr.
+LGR-JHPQB Frank Schmidt IBAN: DE
+00000000000000000000 BIC: C
+OBADEHD001";;EUR;20;H

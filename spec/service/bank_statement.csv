@@ -1,31 +1,31 @@
 Umsatzanzeige;;;;;;;;;;;;
 ;;;;;;;;;;;;
-BLZ:;20190003;;Datum:;15.02.2019;;;;;;;;
+BLZ:;20191000;;Datum:;10.01.2019;;;;;;;;
 Konto:;19400420;;Uhrzeit:;09:27:20;;;;;;;;
-Abfrage von:;Alexander Lux;;Kontoinhaber:;Fuﬂball-Club St. Pauli;;;;;;;;
+Abfrage von:;Vorname Nachname;;Kontoinhaber:;Fuﬂball-Club St. Pauli;;;;;;;;
 ;;;;;;;;;;;;
 Zeitraum:;Alle Ums‰tze;von:;;bis:;;;;;;;;
 Betrag in EUR:;;von:; ;bis:; ;;;;;;;
 Sortiert nach:;Buchungstag;absteigend;;;;;;;;;;
 ;;;;;;;;;;;;
-Buchungstag;Valuta;Auftraggeber/Zahlungsempf‰nger;Empf‰nger/Zahlungspflichtiger;Konto-Nr.;IBAN;BLZ;BIC;Vorgang/Verwendungszweck;Kundenreferenz;W‰hrung;Umsatz; 
+Buchungstag;Valuta;Auftraggeber/Zahlungsempf‰nger;Empf‰nger/Zahlungspflichtiger;Konto-Nr.;IBAN;BLZ;BIC;Vorgang/Verwendungszweck;Kundenreferenz;W‰hrung;Umsatz;
 15.02.2019;15.02.2019;FC St. Pauli Marathon;Sven Schmidt;;DE00000000000000000000;;GENODEF1HH2;"‹berweisungsgutschr.
 JHPQB Frank Schmidt IBAN: DE
-000000000000000000 BIC: C
+00000000000000000000 BIC: C
 OBADEHD001";;EUR;20;H
 15.02.2019;15.02.2019;FC St. Pauli Marathon;Sven Schmidt;;DE00000000000000000000;;GENODEF1HH2;"‹berweisungsgutschr.
 TOWMW Sabine Schneider IBAN:
-DE0000000000000000000 BIC:
+DE00000000000000000000 BIC:
 COBADEHD001";;EUR;10;H
 15.02.2019;15.02.2019;FC St. Pauli Marathon;Sven Schmidt;;DE00000000000000000000;;GENODEF1HH2;"‹berweisungsgutschr.
 YMTGE Sven Schmidt IBAN: DE2
-000000000000000000000 BIC: CO
+DE26200411330264475500
+0000000000000000000 BIC: CO
 BADEHD001";;EUR;20;H
-15.02.2019;15.02.2019;FC St. Pauli Marathon;Dr. Antje Mueller / 20359 Hamburg-St. Pauli;;DE00000000000000000000;;GENODEF1HH2;"‹berweisungsgutschr.
+15.02.2019;15.02.2019;FC St. Pauli Marathon;Irgendwer Mueller / 20057 Hamburg-St. Pauli;;DE00000000000000000000;;GENODEF1HH2;"‹berweisungsgutschr.
 RKMBD Startnummer: 439 IBAN
 : DE00000000000000000000 BI
 C: VOWADE2B";;EUR;20;H
 14.02.2019;14.02.2019;FC St. Pauli Marathon;Wolfgang Meyer;;DE00000000000000000000;;GENODEF1HH2;"‹berweisungsgutschr.
-RZFXU IBAN: DE00000000000000000000000
-00000000 BIC: CSDBDE71";;EUR;20;H
-
+RZFXU IBAN: DE0000000000000000
+0000 BIC: CSDBDE71";;EUR;20;H
