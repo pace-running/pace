@@ -24,7 +24,7 @@
     "express": "^5.0.0-alpha.7",
     "express-session": "~1.15.6",
     "fast-csv": "^2.3.0",
-    "ioredis": "^4.0.0",
+    "ioredis": "^4.9.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
