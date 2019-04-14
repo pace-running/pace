@@ -86,13 +86,6 @@ describe('pdfGeneration', () => {
 
 
   describe('createStartNumberPage', () => {
-    it('should add the barcode two times for easier scanning', () => {
-      let numberOfOtherImageCalls = 2;
-
-      pdfGeneration.createStartNumberPage(documentMock, startNumberData);
-      expect(documentMock.image).toHaveBeenCalledTimes(3 + numberOfOtherImageCalls);
-    });
-
     it('should add the background image and the logos', () => {
       pdfGeneration.createStartNumberPage(documentMock, startNumberData);
       expect(documentMock.image.calls.argsFor(0)[0]).toMatch(/pdf\/images\/background_light\.jpg/);
@@ -104,9 +97,14 @@ describe('pdfGeneration', () => {
       expect(documentMock.text.calls.argsFor(0)).toEqual(['1234', 0, 130, {align: 'center'}]);
     });
 
-    it('should add the team name if it exits', () => {
+    it('should add the first name', () => {
       pdfGeneration.createStartNumberPage(documentMock, startNumberData);
-      expect(documentMock.text.calls.argsFor(1)).toEqual(['Unicorns', 0, 300, {align: 'center'}]);
+      expect(documentMock.text.calls.argsFor(1)).toEqual(['Digital', 0, 300, {align: 'center'}]);
+    });
+
+    it('should add the team name', () => {
+      pdfGeneration.createStartNumberPage(documentMock, startNumberData);
+      expect(documentMock.text.calls.argsFor(2)).toEqual(['Unicorns', 0, 350, {align: 'center'}]);
     });
 
     it('should add the QR code to the self-service link', () => {
