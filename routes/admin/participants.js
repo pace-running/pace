@@ -9,6 +9,7 @@ const tshirts = require('../../service/tshirts');
 const editUrlHelper = require('../../domain/editUrlHelper');
 const costCalculator = require('../../domain/costCalculator');
 const registration = require('../../service/registration');
+const exportHelpers = require('../../service/util/exportHelpers');
 
 
 //TODO Move those 2 method out of the Ctrl.
@@ -26,6 +27,12 @@ let addAmountTo = (participants) => {
   });
 };
 
+router.get('/csv',isAuthenticated,(req,res) => {
+  res.setHeader('Content-Disposition', 'attachment');
+  res.setHeader('Content-disposition', 'attachment; filename=export.csv');
+  res.setHeader('Content-type', 'application/csv');
+  exportHelpers.csv(res)
+});
 
 router.get('/', isAuthenticated, (req, res) => {
   participants.get.all().then(allParticipants => {
