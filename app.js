@@ -11,6 +11,7 @@ let LocalStrategy = require('passport-local').Strategy;
 let flash = require('connect-flash');
 
 let indexRoute = require('./routes/index');
+let impressumRoute = require('./routes/impressum');
 let loginRoute = require('./routes/login');
 let logoutRoute = require('./routes/logout');
 
@@ -124,6 +125,7 @@ if (config.get('teamEvent')) {
   app.use('/participants', participantsRoute);
 }
 app.use('/', indexRoute);
+app.use('/impressum', impressumRoute);
 app.use('/certificate',certificateRoute);
 app.use('/paymentvalidation', paymentValidationRoute);
 app.use('/editparticipant', editParticipantRoute);
