@@ -30,12 +30,12 @@ pdfGeneration.addCheckmarkSymbol = (doc) => {
 };
 
 pdfGeneration.addQrCodeWithSelfServiceLink = (doc, selfServiceUrl) => {
-  doc.fontSize(10).fillColor('black').text('Registriere dich', 300, 320);
-  doc.fontSize(10).fillColor('black').text('nach dem Lauf', 300, 330);
-  doc.fontSize(10).fillColor('black').text('unter diesem Link', 300, 340);
-
+  doc.fontSize(10).fillColor('white').text('Registriere dich', 120, 365);
+  doc.fontSize(10).fillColor('white').text('nach dem Lauf', 120, 376);
+  doc.fontSize(10).fillColor('white').text('unter diesem Link', 120, 387);
+  doc.rect(20,320,86,86).fill('white');
   doc.scale(2)
-    .translate(100, 150)
+    .translate(10, 160)
     .path(qr.svgObject(selfServiceUrl).path)
     .fill('black', 'even-odd');
 };

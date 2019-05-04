@@ -40,6 +40,9 @@ describe('pdfGeneration', () => {
       path: function () {
         return documentMock;
       },
+      rect: function () {
+        return documentMock;
+      },
       lineWidth: function () {
         return documentMock;
       },
