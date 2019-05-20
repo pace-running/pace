@@ -33,9 +33,9 @@ pdfGeneration.addQrCodeWithSelfServiceLink = (doc, selfServiceUrl) => {
   doc.fontSize(10).fillColor('white').text('Registriere dich', 120, 365);
   doc.fontSize(10).fillColor('white').text('nach dem Lauf', 120, 376);
   doc.fontSize(10).fillColor('white').text('unter diesem Link', 120, 387);
-  doc.rect(20,320,86,86).fill('white');
+  doc.rect(20,310,86,86).fill('white');
   doc.scale(2)
-    .translate(10, 160)
+    .translate(10, 155)
     .path(qr.svgObject(selfServiceUrl).path)
     .fill('black', 'even-odd');
 };
