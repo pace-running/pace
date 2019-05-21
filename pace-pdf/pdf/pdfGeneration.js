@@ -35,7 +35,7 @@ pdfGeneration.addQrCodeWithSelfServiceLink = (doc, selfServiceUrl) => {
   doc.fontSize(10).fillColor('white').text('unter diesem Link', 120, 387);
   doc.rect(20,310,86,86).fill('white');
   doc.scale(2)
-    .translate(10, 155)
+    .translate(10, 150)
     .path(qr.svgObject(selfServiceUrl).path)
     .fill('black', 'even-odd');
 };
