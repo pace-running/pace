@@ -88,3 +88,22 @@ form#editParticipantForm(method='POST', action=formAction)
 
   button#submit.button-primary.u-full-width(type='submit') Änderung speichern
 
+unless isAdmin
+  script(type="text/javascript").
+    $(document).ready(function() {
+      $("button#submit").attr("disabled", true);
+      $("input#agreement").change(function () {
+        $('button#submit').prop('disabled', function(i, v) { return !v; });
+        console.log("triggered")
+      })
+    });
+
+
+
+  .row
+    input(id='agreement', type='checkbox')
+    b  Einverständniserklärung
+    div Ich bin damit einverstanden, dass der FC St. Pauli von 1910 e.V. meine Zeit und – sofern von mir oben ebenfalls angegeben – meinen Vornamen, Namen, den Namen meines Teams, sowie meine Startnummer und in die Ergebnisliste für den „Lauf gegen Rechts“ 2019 auf der Webseite www.lauf-gegen-rechts.de/results/ veröffentlichen darf.
+    | Mir ist bewusst, dass die Datenverarbeitung entsprechend der Datenschutzbestimmungen der Webseite
+    a(href="https://www.lauf-gegen-rechts.de/impressum") lauf-gegen-rechts.de
+    span  erfolgt. Ich weiß, dass meine Einwilligung freiwillig ist und ich sie jederzeit durch einfache Erklärung (per E-Mail an info@lauf-gegen-rechts.de oder per Post an Fußball-Club St. Pauli v. 1910 e.V. (Abteilung Marathon), Harald-Stender-Platz 1, 20359 Hamburg) mit Wirkung für die Zukunft widerrufen kann.

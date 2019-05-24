@@ -155,6 +155,8 @@ context('participant edits themselves', () => {
       .get('input#calc_seconds')
       .should('have.value','')
       .type('27')
+      .get('input#agreement')
+      .click()
       .get('#submit')
       .click();
     cy.visit('/editparticipant/secureIdForTheEditLink')

@@ -93,6 +93,14 @@ button#confirm-registration:hover{
     background-color: #008080;
 }
 
+button#submit:disabled {
+  background-color: #dddddd;
+}
+button#submit:disabled[hover] {
+  background-color: #dddddd;
+}
+
+
 table button {
     margin: 0;
 }
@@ -248,3 +256,4 @@ input[type="button"].button-primary:focus {
   font-weight: bold;
   color: rgb(212, 64, 52);
 }
+
