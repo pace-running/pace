@@ -82,7 +82,7 @@ context('User registration', () => {
       .get('input#firstname')
       .should('have.value','Hans')
   });
-  it('shows participant in list', () => {
+  xit('shows participant in list', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')
@@ -101,7 +101,7 @@ context('User registration', () => {
       .should('contain','Simone')
 
   })
-  it('does not show participant in list if they do not want to', () => {
+  xit('does not show participant in list if they do not want to', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')
@@ -130,9 +130,6 @@ context('participant edits themselves', () => {
       .should('contain','Teilnehmer nicht bekannt')
   });
   it('allows to edit data via the self-service-link', () => {
-    cy.task('resetDb').then( () => {
-      cy.task('validUser');
-    });
     cy.visit('/editparticipant/secureIdForTheEditLink')
       .get('input#firstname')
       .should('have.value','Friedrich')
@@ -142,9 +139,6 @@ context('participant edits themselves', () => {
       .should('exist')
   });
   it('allows to edit finish time via the self-service-link', () => {
-    cy.task('resetDb').then( () => {
-      cy.task('validUser');
-    });
     cy.visit('/editparticipant/secureIdForTheEditLink')
       .get('input#hours')
       .should('have.value','')

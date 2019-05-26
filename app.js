@@ -122,7 +122,7 @@ if (config.get('teamEvent')) {
 } else {
   app.use('/registration', registrationRoute);
   app.use('/results',resultRoute);
-  app.use('/participants', participantsRoute);
+  app.use('/participants', indexRoute);
 }
 app.use('/', indexRoute);
 app.use('/impressum', impressumRoute);
