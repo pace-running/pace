@@ -17,7 +17,6 @@ let logoutRoute = require('./routes/logout');
 
 let registrationRoute = require('./routes/participants/registration');
 let teamsRegistrationRoute = require('./routes/teams/registration');
-let participantsRoute = require('./routes/participants/participants');
 let teamsParticipantsRoute = require('./routes/teams/participants');
 let editParticipantRoute = require('./routes/participants/editParticipant');
 

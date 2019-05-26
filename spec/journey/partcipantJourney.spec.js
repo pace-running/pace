@@ -1,4 +1,4 @@
-/* global cy, context, it */
+/* global cy, context, it , xit */
 context('User registration', () => {
   it('allows to start via the registration page', () => {
     cy.visit('/registration')
