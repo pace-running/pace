@@ -345,7 +345,7 @@ participants.bulkmail = () => {
 async function oneMailAfterTheOther(participants) {
   for(const participant of participants) {
     await sendInfoMailTo(participant);
-    console.log('sending email', participant.startnumber);
+    console.log('sending email', participant.start_number);
     await sleep(1000);
   }
 }
