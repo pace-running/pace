@@ -334,20 +334,29 @@ participants.bulkmail = () => {
 
   participants.get.confirmed().then(confirmed => {
     participants.get.registered().then(unconfirmed => {
-      _.forEach(confirmed, participant => {
-        sendInfoMailTo(participant);
-      });
-      _.forEach(unconfirmed, participant => {
-        sendInfoMailTo(participant);
-      });
+      oneMailAfterTheOther(unconfirmed);
+      oneMailAfterTheOther(confirmed);
       deferred.resolve();
     });
   }).catch(deferred.reject);
-
   return deferred.promise;
 };
 
-function sendInfoMailTo(participant) {
+async function oneMailAfterTheOther(participants) {
+  for(const participant of participants) {
+    await sendInfoMailTo(participant);
+    console.log('sending email', participant.startnumber);
+    await sleep(1000);
+  }
+}
+
+function sleep(ms){
+    return new Promise(resolve=>{
+        setTimeout(resolve,ms);
+    })
+}
+
+async function sendInfoMailTo(participant) {
   mails.sendStatusEmail(participant, 'Lauf gegen Rechts - Infos zum Lauf', 'views/participants/bulkmail.pug');
 }
 
