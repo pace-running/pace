@@ -12,7 +12,7 @@ service._nodemailer = nodemailer;
 
 service.sendStatusEmail = (participant, subject, pugfile) => {
   pug.renderFile(pugfile,
-    {name: participant.firstname, editUrl: editUrlHelper.generateUrl(participant.secureid)},
+    {name: participant.firstname, startnumber: participant.start_number,  editUrl: editUrlHelper.generateUrl(participant.secureid)},
     (error, html) =>
       service.sendEmail(participant.email, subject, html, error)
   );
