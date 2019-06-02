@@ -1,6 +1,7 @@
 extends ../guestLayout.pug
 
 block content
+    strong Deine Zeit eintragen über den Link in der Bestätigungsmail
     .row
       form#resultForm(method='GET', action='/results')
         .row
@@ -21,7 +22,7 @@ block content
                 option(value='40-44') 40-44
                 option(value='45-49') 45-49
                 option(value='50-54') 50-54
-                option(value='55-59') 55-59 
+                option(value='55-59') 55-59
                 option(value='60-64') 60-64
                 option(value='65-69') 65-69
                 option(value='70-74') 70-74
@@ -63,6 +64,6 @@ block content
                 ],
               serverSide: true,
           });
-          $('#category').change (function () { table.ajax.reload(); });	
-          $('#agegroup').change (function () { table.ajax.reload(); });	
+          $('#category').change (function () { table.ajax.reload(); });
+          $('#agegroup').change (function () { table.ajax.reload(); });
         });
