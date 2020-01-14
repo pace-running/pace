@@ -1,0 +1,7 @@
+namePrefix: dev-
+commonLabels:
+  variant: dev
+bases:
+- ../../base/
+patchesStrategicMerge:
+- deployment.yaml

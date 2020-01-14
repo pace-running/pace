@@ -1,0 +1,6 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pace-app-deployment
+spec:
+  replicas: 3

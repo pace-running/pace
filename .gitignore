@@ -49,3 +49,6 @@ version.sha
 
 /cypress/videos
 /cypress/screenshots
+
+# where our database passwords are stored
+secrets.env

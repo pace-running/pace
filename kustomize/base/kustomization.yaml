@@ -1,0 +1,13 @@
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+commonLabels:
+  app: pace-app
+
+resources:
+- deployment.yaml
+- service.yaml
+
+secretGenerator:
+- name: db-secrets
+  type: Opaque
+  env: secrets.env
