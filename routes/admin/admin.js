@@ -11,7 +11,7 @@ const registration = require('../../service/registration');
 const stats = require('../../service/stats');
 const participants = require('../../service/participants');
 const Redis = require('ioredis');
-const redis = new Redis(6379, process.env.REDISHOST || 'localhost');
+const redis = new Redis(process.env.REDISHOST || 'redis://localhost:6379');
 
 let canViewAdminPage = (role) => accesscontrol.hasPermissionTo(role, 'view admin page');
 

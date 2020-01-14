@@ -17,7 +17,7 @@ pace-pdf:
   volumes:
     - data-volume:/pdf
   environment:
-    - REDISHOST=redis
+    - REDISHOST=redis://redis:6379
   ports:
     - "3001:3001"
 pace-app:
@@ -31,4 +31,4 @@ pace-app:
     - redis
   environment:
     - DATABASE_URL=postgres://pgtester:pgtester@db/pace
-    - REDISHOST=redis
+    - REDISHOST=redis://redis:6379

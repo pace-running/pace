@@ -70,7 +70,7 @@ app.use("/api", function(err, req, res){
 
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
-var redishost = process.env.REDISHOST || 'localhost';
+var redishost = process.env.REDISHOST || 'redis://localhost:6379';
 app.use(session(
     {
         store: new RedisStore({host: redishost}),
