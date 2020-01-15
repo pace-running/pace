@@ -4,10 +4,6 @@ services:
 - docker
 env:
 - CI=1
-cache:
-  directories:
-  - $HOME/.cache
-
 before_install:
 - sudo service postgresql stop
 before_script:
