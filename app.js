@@ -70,10 +70,11 @@ app.use("/api", function(err, req, res){
 
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
-var redishost = process.env.REDISHOST || 'redis://localhost:6379';
+const Redis = require('ioredis');
+const redisclient = new Redis(process.env.REDISHOST || 'redis://localhost:6379');
 app.use(session(
     {
-        store: new RedisStore({host: redishost}),
+        store: new RedisStore({client: redisclient}),
         secret: config.get('cookie-secret'),
         signed: true,
         resave: false,
