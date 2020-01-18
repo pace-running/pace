@@ -22,6 +22,6 @@ then
   docker tag pace_pace-pdf pacerunning/pace-pdf:latest
   docker tag pace_pace-pdf pacerunning/pace-pdf:$TRAVIS_COMMIT
   docker push pacerunning/pace-pdf
-  cd kustomize/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
+  cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
   cd .. && kubectl --token $KUBE_TOKEN apply --namespace dev -k overlays/dev   
 fi
