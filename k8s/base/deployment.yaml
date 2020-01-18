@@ -12,13 +12,13 @@ spec:
       initContainers:
       - name: db-migrate
         image: pacerunning/pace-app
+        command: ['npx', 'db-migrate', 'up']
         env:
         - name: "DATABASE_URL"
           valueFrom:
             secretKeyRef:
               name: db-secrets
               key: DATABASE_URL
-          command: ['npx', 'db-migrate', 'up']
       containers:
       - name: pace-app
         image: pacerunning/pace-app
