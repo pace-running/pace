@@ -12,7 +12,7 @@ spec:
       initContainers:
       - name: db-migrate
         image: pacerunning/pace-app
-        command: ['npx', 'db-migrate', 'up']
+        command: ['npx', 'db-migrate', 'up', '-e', 'dev']
         env:
         - name: "DATABASE_URL"
           valueFrom:
