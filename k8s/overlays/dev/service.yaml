@@ -1,0 +1,7 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pace-app-service
+spec:
+  selector:
+    deployment: dev-pace-app-deployment
