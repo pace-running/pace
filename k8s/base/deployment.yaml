@@ -10,9 +10,9 @@ spec:
         deployment: pace-app
     spec:
       initContainers:
-        - name: db-migrate
-          image: pacerunning/pace-app
-         env:
+      - name: db-migrate
+        image: pacerunning/pace-app
+        env:
         - name: "DATABASE_URL"
           valueFrom:
             secretKeyRef:
