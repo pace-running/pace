@@ -71,7 +71,12 @@ app.use("/api", function(err, req, res){
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 const Redis = require('ioredis');
-const redisclient = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
+let use_ssl = false;
+if (process.env.REDIS_URL) {
+  use_ssl = process.env.REDIS_URL.startsWith('rediss')
+}
+  
+const redisclient = new Redis(process.env.REDIS_URL || 'redis://localhost:6379',{tls: use_ssl });
 app.use(session(
     {
         store: new RedisStore({client: redisclient}),
