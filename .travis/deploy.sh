@@ -28,4 +28,5 @@ then
   echo "running kustomize"
   cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
   cd .. && kubectl --token $KUBE_TOKEN apply --namespace dev -k overlays/dev   
+  kubectl kustomize overlays/dev 
 fi
