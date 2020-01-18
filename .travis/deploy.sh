@@ -8,11 +8,9 @@ set -u # Disallow unset variables
 # Only run when not part of a pull request and on the master branch
 if [ $TRAVIS_BRANCH = "master" ]
 then
-
-  curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
   curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
   chmod 755 ./kubectl
-  export PATH=$PWD:$PATH
+  export PATH=$PWD:$PWD/.travis/:$PATH
   export KUBECONFIG=$(pwd)/.travis/kubeconfig 
 
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
