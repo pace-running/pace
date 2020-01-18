@@ -1,5 +1,6 @@
 {
   "dev": "postgres://pgtester:pgtester@localhost/pace",
   "ci": {"ENV": "DATABASE_URL"},
-  "prod": {"ENV": "DATABASE_URL"}
+  "prod": {"ENV": "DATABASE_URL"},
+  "k8s" : {"ENV": "DATABASE_URL"}
 }
