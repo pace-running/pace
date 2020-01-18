@@ -71,7 +71,7 @@ app.use("/api", function(err, req, res){
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 const Redis = require('ioredis');
-const redisclient = new Redis(process.env.REDISHOST || 'redis://localhost:6379');
+const redisclient = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
 app.use(session(
     {
         store: new RedisStore({client: redisclient}),

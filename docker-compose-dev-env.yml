@@ -19,6 +19,6 @@ pace-pdf:
   volumes:
     - data-volume:/pdf
   environment:
-    - REDISHOST=redis://redis:6379
+    - REDIS_URL=redis://redis:6379
   ports:
     - "3001:3001"

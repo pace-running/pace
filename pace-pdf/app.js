@@ -7,7 +7,7 @@ const express = require('express');
 let apiRoute = require('./routes/api');
 let healthRoute = require('./routes/health');
 
-pdfRequests.setup(new Redis(process.env.REDISHOST || 'redis://localhost:6379'));
+pdfRequests.setup(new Redis(process.env.REDIS_URL || 'redis://localhost:6379'));
 
 
 let app = express();
