@@ -20,6 +20,8 @@ then
   docker tag pace_pace-pdf pacerunning/pace-pdf:latest
   docker tag pace_pace-pdf pacerunning/pace-pdf:$TRAVIS_COMMIT
   docker push pacerunning/pace-pdf
+  echo "DATASE_URL=$DATABASE_URL_DEV" > k8s/base/secrets.env
+  echo "REDIS_URL=$REDIS_URL" >> k8s/base/secrets.env
   cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
   cd .. && kubectl --token $KUBE_TOKEN apply --namespace dev -k overlays/dev   
 fi
