@@ -8,6 +8,7 @@ set -u # Disallow unset variables
 # Only run when not part of a pull request and on the master branch
 if [ $TRAVIS_BRANCH = "master" ]
 then
+  set -e
   curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
   chmod 755 ./kubectl
   export PATH=$PWD:$PWD/.travis/:$PATH
@@ -22,8 +23,6 @@ then
   docker push pacerunning/pace-pdf
   echo "DATABASE_URL=$DATABASE_URL_DEV" > k8s/base/secrets.env
   echo "REDIS_URL=$REDIS_URL" >> k8s/base/secrets.env
-  echo "running kustomize"
   cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
   cd .. && kustomize build overlays/dev | kubectl --token $KUBE_TOKEN apply --namespace dev -f - 
-  kustomize build overlays/dev 
 fi
