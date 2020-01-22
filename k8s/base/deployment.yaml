@@ -9,10 +9,6 @@ spec:
       labels:
         deployment: pace-app-deployment
     spec:
-      volumes:
-        - name: config
-          configMap:
-            name: config
       initContainers:
       - name: db-migrate
         image: pacerunning/pace-app
@@ -28,9 +24,6 @@ spec:
         image: pacerunning/pace-app
         ports:
         - containerPort: 3000
-        volumeMounts:
-        - name: config
-          mountPath: /usr/src/app/config
         env:
         - name: "NODE_ENV"
           value: "base"

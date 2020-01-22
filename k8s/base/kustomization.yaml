@@ -13,7 +13,3 @@ secretGenerator:
   envs: 
     - secrets.env
 
-configMapGenerator:
-- name: config
-  files:
-    - default.yml
