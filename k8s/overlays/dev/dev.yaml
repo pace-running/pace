@@ -1,0 +1,10 @@
+---
+contact:
+  email: info@lauf-gegen-rechts.de
+  bank:
+    name: Eine nette Bank
+    iban: DE19 1234 1234 1234 1234 12
+    bic: DE12345677
+pace-url: http://dev.lauf-gegen-rechts.de
+proxy: true
+https: false

@@ -12,3 +12,8 @@ secretGenerator:
   type: Opaque
   envs: 
     - secrets.env
+
+configMapGenerator:
+- name: config
+  files:
+    - config.yaml

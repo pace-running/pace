@@ -9,6 +9,10 @@ spec:
       labels:
         deployment: pace-app-deployment
     spec:
+      volumes:
+        - name: config
+          configMap:
+            name: config
       initContainers:
       - name: db-migrate
         image: pacerunning/pace-app
@@ -24,6 +28,9 @@ spec:
         image: pacerunning/pace-app
         ports:
         - containerPort: 3000
+        volumeMounts:
+          - name: config
+            mount-path: /usr/src/app/config
         env:
         - name: "NODE_ENV"
           value: "base"
@@ -37,3 +44,4 @@ spec:
             secretKeyRef:
               name: db-secrets
               key: REDIS_URL
+

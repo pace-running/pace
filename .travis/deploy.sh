@@ -25,4 +25,11 @@ then
   echo "REDIS_URL=$REDIS_URL" >> k8s/base/secrets.env
   cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
   cd .. && kustomize build overlays/dev | kubectl --token $KUBE_TOKEN apply --namespace dev -f - 
+  ATTEMPTS=0
+  ROLLOUT_STATUS_CMD="kubectl rollout status deployment dev-pace-app-deployment"
+  until $ROLLOUT_STATUS_CMD || [ $ATTEMPTS -eq 60 ]; do
+    $ROLLOUT_STATUS_CMD
+    ATTEMPTS=$((attempts + 1))
+    sleep 10
+  done
 fi

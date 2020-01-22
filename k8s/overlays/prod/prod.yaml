@@ -1,0 +1,35 @@
+{
+  "eventName": "Lauf gegen Rechts",
+  "eventUrl": "http://fcstpauli-marathon.de/gegenrechts",
+  "shirts": {
+    "price": "10",
+    "models": [
+      {
+        "value": "Slim fit",
+        "description": "Tailliert",
+        "sizes": ["XS","S","M","L"]
+      },
+      {
+        "value": "Regular",
+        "description": "Unisex",
+        "sizes": ["S","M","L","XL"]
+      }
+    ]
+  },
+  "costs": {
+    "standard": "10",
+    "discount": "5"
+  },
+  "contact": {
+    "email": "info@lauf-gegen-rechts.de",
+    "bank": {
+      "name": "Eine nette Bank",
+      "iban": "DE19 1234 1234 1234 1234 12",
+      "bic": "DE12345677"
+    }
+  },
+  "pace-url": "https://www.lauf-gegen-rechts.de",
+  "proxy":true,
+  "https":true,
+  "teamEvent" : false,
+}

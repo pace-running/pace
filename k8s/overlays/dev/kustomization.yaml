@@ -5,3 +5,8 @@ bases:
 - ../../base/
 patchesStrategicMerge:
 - deployment.yaml
+configMapGenerator:
+- name: config
+  behavior: merge
+  files:
+    - dev.yaml
