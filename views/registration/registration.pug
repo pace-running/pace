@@ -2,12 +2,7 @@ extends ../guestLayout.pug
 
 block content
   if registrationClosed
-    h4.black.centered Die online Anmeldung ist ab 16.5.2019 geschlossen.
-    p#registration-closed-message Nachmeldungen sind möglich:
-    ul
-      li Samstag, 1. Juni, 12-18 Uhr, Millerntorstadion, Gegengerade vor den Fanräumen
-      li Sonntag 2. Juni, 8-9:45 Uhr, Alsterwiese
-    p Nachmelder_innen erhalten mit Startnummer einen Code mit dem sie sich nachträglich online Urkunde und persönliche Laufzeit runterladen bzw. ansehen können
+    h4.black.centered Die online Anmeldung ist ab ab dem 1.2.2020 geöffnet
   else
     h4.black.centered Melde dich hier zum Lauf an
     form#registrationForm(method='POST', action='/registration')
