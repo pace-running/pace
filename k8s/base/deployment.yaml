@@ -29,8 +29,8 @@ spec:
         ports:
         - containerPort: 3000
         volumeMounts:
-          - name: config
-            mount-path: /usr/src/app/config
+        - name: config
+          mountPath: /usr/src/app/config
         env:
         - name: "NODE_ENV"
           value: "base"
@@ -44,4 +44,3 @@ spec:
             secretKeyRef:
               name: db-secrets
               key: REDIS_URL
-
