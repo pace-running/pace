@@ -26,4 +26,4 @@ echo "DATABASE_URL=$DATABASE_URL_DEV" > k8s/base/secrets.env
 echo "REDIS_URL=$REDIS_URL" >> k8s/base/secrets.env
 cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
 cd .. && kustomize build overlays/dev | kubectl --token $KUBE_TOKEN apply --namespace dev -f - 
-kubectl rollout status deployment dev-pace-app-deployment --timeout=30s -w 
+kubectl --token $KUBE_TOKEN rollout status deployment dev-pace-app-deployment --timeout=30s -w 
