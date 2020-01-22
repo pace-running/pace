@@ -9,4 +9,4 @@ configMapGenerator:
 - name: config
   behavior: merge
   files:
-    - dev.yaml
+    - dev.yml

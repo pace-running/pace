@@ -7,4 +7,4 @@ contact:
     bic: DE12345677
 pace-url: http://dev.lauf-gegen-rechts.de
 proxy: true
-https: false
+https: true
