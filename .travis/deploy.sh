@@ -4,12 +4,6 @@ set -e # Abort script at first error
 set -u # Disallow unset variables
 
 
-
-# Only run when not part of a pull request and on the master branch
-if [ $TRAVIS_BRANCH != "master" ]; then
-  exit 1
-fi
-
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod 755 ./kubectl
 export PATH=$PWD:$PWD/.travis/:$PATH
@@ -29,4 +23,4 @@ echo "ADMIN_TOKEN=$ADMIN_TOKEN" >> k8s/base/secrets.env
 echo "COOKIE_SECRET=$COOKIE_SECRET" >> k8s/base/secrets.env
 cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
 cd .. && kustomize build overlays/dev | kubectl --token $KUBE_TOKEN apply --namespace dev -f - 
-kubectl --token $KUBE_TOKEN rollout status deployment dev-pace-app-deployment --timeout=30s -w 
+kubectl --token $KUBE_TOKEN rollout status deployment dev-pace-app-deployment --timeout=30s -w  --namespace dev
