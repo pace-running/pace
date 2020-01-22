@@ -16,4 +16,4 @@ secretGenerator:
 configMapGenerator:
 - name: config
   files:
-    - config.yaml
+    - default.yml
