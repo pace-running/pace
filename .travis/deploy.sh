@@ -11,7 +11,7 @@ chmod 755 ./kubectl
 export PATH=$PWD:$PWD/.travis/:$PATH
 export KUBECONFIG=$(pwd)/.travis/kubeconfig 
 
-case DEPLOY_ENV in 
+case $DEPLOY_ENV in 
   dev)
     echo "DATABASE_URL=$DATABASE_URL_DEV" > k8s/base/secrets.env;;
   prod)
