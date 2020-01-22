@@ -7,6 +7,7 @@ spec:
   template:
     spec:
       containers:
-        env:
-        - name: "NODE_ENV"
-          value: "prod"
+        - name: pace-app
+          env:
+          - name: "NODE_ENV"
+            value: "prod"
