@@ -9,5 +9,5 @@ spec:
       containers:
       - name: pace-app
         env:
-          name: "NODE_ENV"
+        - name: "NODE_ENV"
           value: "dev"
