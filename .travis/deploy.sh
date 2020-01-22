@@ -24,6 +24,9 @@ docker tag pace_pace-pdf pacerunning/pace-pdf:$TRAVIS_COMMIT
 docker push pacerunning/pace-pdf
 echo "DATABASE_URL=$DATABASE_URL_DEV" > k8s/base/secrets.env
 echo "REDIS_URL=$REDIS_URL" >> k8s/base/secrets.env
+echo "ADMIN_PASSWORD=$ADMIN_PASSWORD" >> k8s/base/secrets.env
+echo "ADMIN_TOKEN=$ADMIN_TOKEN" >> k8s/base/secrets.env
+echo "COOKIE_SECRET=$COOKIE_SECRET" >> k8s/base/secrets.env
 cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
 cd .. && kustomize build overlays/dev | kubectl --token $KUBE_TOKEN apply --namespace dev -f - 
 kubectl --token $KUBE_TOKEN rollout status deployment dev-pace-app-deployment --timeout=30s -w 

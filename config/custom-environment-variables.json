@@ -1,3 +1,8 @@
 {
-  "pace-url": "PACE_URL"
+  "pace-url": "PACE_URL",
+  "cookie-secret": "COOKIE_SECRET",
+  "admin": {
+    "password": "ADMIN_PASSWORD",
+    "token": "ADMIN_TOKEN"
+  }
 }
