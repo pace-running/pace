@@ -24,5 +24,5 @@ echo "ADMIN_TOKEN=$ADMIN_TOKEN" >> k8s/base/secrets.env
 echo "COOKIE_SECRET=$COOKIE_SECRET" >> k8s/base/secrets.env
 
 cd k8s/base && kustomize edit set image "pacerunning/pace-app=pacerunning/pace-app:$TRAVIS_COMMIT" 
-cd .. && kustomize build overlays/$DEPLOY_ENV | kubectl --token $KUBE_TOKEN apply --namespace dev -f - 
+cd .. && kustomize build overlays/$DEPLOY_ENV | kubectl --token $KUBE_TOKEN apply --namespace $DEPLOY_ENV -f - 
 kubectl --token $KUBE_TOKEN rollout status deployment $DEPLOY_ENV-pace-app-deployment --timeout=30s -w  --namespace $DEPLOY_ENV
