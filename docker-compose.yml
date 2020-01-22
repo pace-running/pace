@@ -30,5 +30,8 @@ pace-app:
     - db
     - redis
   environment:
+    - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    - ADMIN_TOKEN=${ADMIN_TOKEN}
+    - COOKIE_SECRET=${COOKIE_SECRET}
     - DATABASE_URL=postgres://pgtester:pgtester@db/pace
     - REDIS_URL=redis://redis:6379
