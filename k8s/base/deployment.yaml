@@ -37,3 +37,19 @@ spec:
             secretKeyRef:
               name: db-secrets
               key: REDIS_URL
+        - name: "ADMIN_PASSWORD"
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: ADMIN_PASSWORD
+        - name: "ADMIN_TOKEN"
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: ADMIN_TOKEN
+        - name: "COOKIE_SECRET"
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: COOKIE_SECRET
+
