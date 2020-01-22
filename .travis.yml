@@ -14,7 +14,11 @@ before_script:
 script:
 - "./run_all_tests.sh"
 deploy:
-  provider: script
-  script: bash .travis/deploy.sh
-  on:
-    branch: master
+  - provider: script
+    script: bash .travis/deploy.sh dev
+    on:
+      branch: master
+  - provider: script
+    script: bash .travis/deploy.sh prod
+    on:
+      branch: master
