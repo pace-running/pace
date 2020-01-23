@@ -10,4 +10,4 @@ spec:
         - name: pace-app
           env:
           - name: "NODE_ENV"
-            value: "prod"
+            value: "production"
