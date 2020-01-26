@@ -10,7 +10,7 @@ const participant = {};
 
 participant.invalidData = (body) => {
   const emailPresent = !_.isUndefined(body.email) && !_.isEmpty(body.email);
-  const requiredFieldsMissing = _.isUndefined(body.category) || _.isUndefined(body.visibility);
+  const requiredFieldsMissing = _.isUndefined(body.visibility);
 
   if (!emailPresent) {
     return requiredFieldsMissing;

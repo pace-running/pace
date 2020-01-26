@@ -12,7 +12,6 @@ let createUser = () => {
     firstname: 'Friedrich',
     lastname: 'Schiller',
     email: randomString + '@example.com',
-    category: 'f',
     birthyear: 1980,
     team: 'Crazy runners',
     visibility: 'no'

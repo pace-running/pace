@@ -10,14 +10,6 @@ form#editParticipantForm(method='POST', action=formAction)
           label(for='lastname') Nachname:
           input#lastname.u-full-width(type='text', name='lastname', value=participant.lastname)
   .row
-    .twelve.columns.padding
-      label(for='category') In welcher Ergebnisliste möchtest du erscheinen?
-      select#category.u-full-width(name='category')
-        option(value='m' selected=(participant.category === 'm')) m
-        option(value='f' selected=(participant.category === 'f')) f
-        if teamEvent
-            option(value='mixed' selected=(participant.category === 'mixed')) mixed
-  .row
     if !teamEvent
         .twelve.columns.padding
           label(for='birthyear') Geburtsjahr:

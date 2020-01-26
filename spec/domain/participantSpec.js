@@ -116,14 +116,6 @@ describe('participant', () => {
         expect(callWithInvalidEmail).toThrow();
       });
 
-      it('should throw an error if no category can be found', () => {
-        function callWithNoCategory() {
-          participant.from(_.omit(validBody, 'category'));
-        }
-
-        expect(callWithNoCategory).toThrow();
-      });
-
       it('should throw an error if no visibility can be found', () => {
         function callWithNoVisibility() {
           participant.from(_.omit(validBody, 'visibility'));

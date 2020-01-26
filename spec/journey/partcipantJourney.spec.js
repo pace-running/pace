@@ -8,8 +8,6 @@ context('User registration', () => {
       .type('Mustermann')
       .get('input#email')
       .type('max@example.com')
-      .get('select#category')
-      .select('f')
       .get('input#birthyear')
       .type('2000')
       .get('select#visibility')
