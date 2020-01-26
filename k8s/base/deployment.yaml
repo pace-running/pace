@@ -25,6 +25,8 @@ spec:
         ports:
         - containerPort: 3000
         env:
+        - name: "PACE_URL"
+          value:  "https://dev.lauf-gegen-rechts.de"
         - name: "NODE_ENV"
           value: "base"
         - name: "DATABASE_URL"

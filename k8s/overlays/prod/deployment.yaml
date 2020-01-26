@@ -11,3 +11,6 @@ spec:
           env:
           - name: "NODE_ENV"
             value: "production"
+          env:
+          - name: "PACE_URL"
+            value: "https://www.lauf-gegen-rechts.de"
