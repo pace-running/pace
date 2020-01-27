@@ -32,8 +32,8 @@ block content
         .twelve.columns.padding
           label(for='visibility') Möchtest du in der Liste der Teilnehmer*innen aufgelistet werden*
           select#visibility.u-full-width(name='visibility', required=true)
-            option(value='yes') Ja
             option(value='no') Nein
+            option(value='yes') Ja
       .row
         .twelve.columns.padding
           label(for='visibility') Wie schnell bist du unterwegs?
@@ -85,6 +85,9 @@ block content
                 each size in shirts[0].sizes
                   option(value=size)=size
       button#submit.primary.button-primary.u-full-width.pace(type='submit') Absenden
+
+      div
+        small *Ich bin damit einverstanden, dass der FC St. Pauli von 1910 e.V. meinen Vornamen, Namen, den Namen meines Teams und meine Startnummer in die Teilnehmer*Innenliste für den „Lauf gegen Rechts“ 2019 aufnehmen und auf der Webseite www.lauf-gegen-rechts.de veröffentlichen darf.
 
     script(type='text/javascript').
       var shirtSelection = document.getElementById('shirt');
