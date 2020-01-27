@@ -8,8 +8,6 @@ block content
     form#registrationForm(method='POST', action='/registration')
       input(type='hidden', name='_csrf', value=_csrf)
       .row
-        p.slim.u-pull-right * Pflichtfelder
-      .row
         .six.columns.padding
           label(for='firstname') Vorname
           input#firstname.u-full-width(type='text', name='firstname', autofocus)
