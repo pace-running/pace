@@ -28,7 +28,9 @@ block content
           input#team.u-full-width(type='text', name='team')
       .row
         .twelve.columns.padding
-          label(for='visibility') Möchtest du in der Liste der Teilnehmer*innen aufgelistet werden*
+          label(for='visibility') Möchtest du in der Liste der Teilnehmer*innen aufgelistet werden
+          div
+            small Ich bin damit einverstanden, dass der FC St. Pauli von 1910 e.V. meinen Vornamen, Namen, den Namen meines Teams und meine Startnummer in die Teilnehmer*Innenliste für den „Lauf gegen Rechts“ 2020 aufnehmen und auf der Webseite www.lauf-gegen-rechts.de veröffentlichen darf.
           select#visibility.u-full-width(name='visibility', required=true)
             option(value='no') Nein
             option(value='yes') Ja
@@ -82,10 +84,19 @@ block content
               select#size.u-full-width(name='size')
                 each size in shirts[0].sizes
                   option(value=size)=size
+      div
+        small Mir ist bewusst, dass die Datenverarbeitung entsprechend der Datenschutzbestimmungen der Webseite 
+        a(href='/impressum') lauf-gegen-rechts.de 
+        small erfolgt. Ich weiß, dass meine Einwilligung bzw. Einwilligungen bezüglich 
+        small 
+          li der Verarbeitung meiner Anmeldedaten (Vorname, Nachname, E-Mail-Adresse, Geburtsjahr, den Namen Ihres Teams und/oder Angaben zum Laufverhalten)
+          li der Aufnahme und Veröffentlichung in der Teilnehmer*Innen-Liste
+        small freiwillig ist/sind und ich sie jederzeit durch einfache Erklärung mit Wirkung für die Zukunft widerrufen kann.
+
+
+
       button#submit.primary.button-primary.u-full-width.pace(type='submit') Absenden
 
-      div
-        small *Ich bin damit einverstanden, dass der FC St. Pauli von 1910 e.V. meinen Vornamen, Namen, den Namen meines Teams und meine Startnummer in die Teilnehmer*Innenliste für den „Lauf gegen Rechts“ 2020 aufnehmen und auf der Webseite www.lauf-gegen-rechts.de veröffentlichen darf.
 
     script(type='text/javascript').
       var shirtSelection = document.getElementById('shirt');
