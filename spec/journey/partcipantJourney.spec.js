@@ -80,7 +80,7 @@ context('User registration', () => {
       .get('input#firstname')
       .should('have.value','Hans')
   });
-  xit('shows participant in list', () => {
+  it('shows participant in list', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')
@@ -99,7 +99,7 @@ context('User registration', () => {
       .should('contain','Simone')
 
   })
-  xit('does not show participant in list if they do not want to', () => {
+  it('does not show participant in list if they do not want to', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')

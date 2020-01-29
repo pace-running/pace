@@ -75,7 +75,7 @@ let use_ssl = false;
 if (process.env.REDIS_URL) {
   use_ssl = process.env.REDIS_URL.startsWith('rediss')
 }
-  
+
 const redisclient = new Redis(process.env.REDIS_URL || 'redis://localhost:6379',{tls: use_ssl });
 app.use(session(
     {
@@ -127,7 +127,7 @@ if (config.get('teamEvent')) {
 } else {
   app.use('/registration', registrationRoute);
   app.use('/results',resultRoute);
-  app.use('/participants', indexRoute);
+  app.use('/participants', participantsRoute);
 }
 app.use('/', indexRoute);
 app.use('/impressum', impressumRoute);
