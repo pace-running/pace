@@ -15,6 +15,7 @@ let impressumRoute = require('./routes/impressum');
 let loginRoute = require('./routes/login');
 let logoutRoute = require('./routes/logout');
 
+let participantsRoute = require('./routes/participants/participants.js')
 let registrationRoute = require('./routes/participants/registration');
 let teamsRegistrationRoute = require('./routes/teams/registration');
 let teamsParticipantsRoute = require('./routes/teams/participants');
