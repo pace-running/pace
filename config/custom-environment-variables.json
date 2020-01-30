@@ -1,6 +1,7 @@
 {
   "pace-url": "PACE_URL",
   "cookie-secret": "COOKIE_SECRET",
+  "mailserver": "MAILSERVER_URL",
   "admin": {
     "password": "ADMIN_PASSWORD",
     "token": "ADMIN_TOKEN"
