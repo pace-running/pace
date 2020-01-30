@@ -54,4 +54,9 @@ spec:
             secretKeyRef:
               name: db-secrets
               key: COOKIE_SECRET
+        - name: "MAILSERVER_URL"
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: MAILSERVER_URL
 
