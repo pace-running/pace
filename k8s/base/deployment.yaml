@@ -14,8 +14,8 @@ spec:
           configMap:
             name: config
             items:
-            - key: default.yml
-              path: default.yml
+            - key: local.yml
+              path: local.yml
       initContainers:
       - name: db-migrate
         image: pacerunning/pace-app
@@ -34,7 +34,7 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /usr/src/app/config
-          subPath: default.yml
+          subPath: local.yml
         env:
         - name: "PACE_URL"
           value:  "https://dev.lauf-gegen-rechts.de"
