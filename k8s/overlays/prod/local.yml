@@ -1,0 +1,9 @@
+---
+contact:
+  bank:
+    name: Hamburger Volksbank
+    iban: DE09 2019 0003 0019 4004 20
+    bic: GENODEF1HH2
+pace-url: https://www.lauf-gegen-rechts.de
+proxy: true
+https: true
