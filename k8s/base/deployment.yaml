@@ -33,7 +33,7 @@ spec:
         - containerPort: 3000
         volumeMounts:
         - name: config
-          mountPath: /usr/src/app/config
+          mountPath: /usr/src/app/config/local.yml
           subPath: local.yml
         env:
         - name: "PACE_URL"
