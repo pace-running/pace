@@ -23,7 +23,7 @@
     "debug": "~4.1.0",
     "express": "^5.0.0-alpha.7",
     "express-session": "~1.16.0",
-    "fast-csv": "^2.3.0",
+    "fast-csv": "^4.1.1",
     "ioredis": "^4.0.0",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.15",
