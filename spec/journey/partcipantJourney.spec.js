@@ -1,4 +1,4 @@
-/* global cy, context, it, xit */
+/* global cy, context, it*/
 context('User registration', () => {
   it('allows to start via the registration page', () => {
     cy.visit('/registration')
@@ -80,13 +80,15 @@ context('User registration', () => {
       .get('input#firstname')
       .should('have.value','Hans')
   });
-  xit('shows participant in list', () => {
+  it('shows participant in list', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')
       .type('Simone')
       .get('input#lastname')
       .type('Meyer')
+      .get('select#visibility')
+      .select('yes')
       .get('button#submit')
       .click()
     cy.login();
@@ -99,7 +101,7 @@ context('User registration', () => {
       .should('contain','Simone')
 
   })
-  xit('does not show participant in list if they do not want to', () => {
+  it('does not show participant in list if they do not want to', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')
@@ -128,6 +130,9 @@ context('participant edits themselves', () => {
       .should('contain','Teilnehmer nicht bekannt')
   });
   it('allows to edit data via the self-service-link', () => {
+    cy.task('resetDb').then( () => {
+      cy.task('validUser');
+    });
     cy.visit('/editparticipant/secureIdForTheEditLink')
       .get('input#firstname')
       .should('have.value','Friedrich')
@@ -137,6 +142,9 @@ context('participant edits themselves', () => {
       .should('exist')
   });
   it('allows to edit finish time via the self-service-link', () => {
+    cy.task('resetDb').then( () => {
+      cy.task('validUser');
+    });
     cy.visit('/editparticipant/secureIdForTheEditLink')
       .get('input#hours')
       .should('have.value','')
