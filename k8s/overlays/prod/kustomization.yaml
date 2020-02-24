@@ -5,6 +5,7 @@ bases:
 - ../../base/
 patchesStrategicMerge:
 - deployment.yaml
+- service.yaml
 configMapGenerator:
 - name: config
   behavior: merge

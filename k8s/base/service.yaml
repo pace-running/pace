@@ -7,6 +7,7 @@ metadata:
     service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
     service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
     service.beta.kubernetes.io/do-loadbalancer-certificate-id: "eat-beef"
+    service.beta.kubernetes.io/do-loadbalancer-redirect-http-to-https: "true"
 spec:
   selector:
     deployment: pace-app-deployment

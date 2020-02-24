@@ -1,0 +1,6 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pace-app-service
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "381fe2cb-c413-4f66-8da6-e3e984374c99"
