@@ -36,12 +36,20 @@ describe('token service', () => {
     });
 
     describe('createUnique()', () => {
-      it('returns a string with 5 upper case characters', (done) => {
+      it('returns a string with 9 upper case characters', (done) => {
 
         tokens.createUnique()
           .then((uniqueToken) => {
-            expect(uniqueToken.length).toBe(5);
+            expect(uniqueToken.length).toBe(9);
             expect(uniqueToken).toBe(uniqueToken.toUpperCase());
+            done();
+          })
+          .catch(done.fail);
+      });
+      it('returns a string that contains LGR-', (done) => {
+        tokens.createUnique()
+          .then((uniqueToken) => {
+            expect(uniqueToken).toContain('LGR-');
             done();
           })
           .catch(done.fail);

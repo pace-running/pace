@@ -18,7 +18,7 @@ function randomString() {
 
 tokens.createUnique = () => {
   const deferred = Q.defer();
-  const token = randomString();
+  const token = 'LGR-' + randomString();
 
   db.select('select * from participants where paymenttoken like $1', [token])
     .then((result) => {
