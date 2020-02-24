@@ -2,6 +2,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: pace-app-service
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+    service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
+    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "eat-beef"
 spec:
   selector:
     deployment: pace-app-deployment
