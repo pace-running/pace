@@ -231,7 +231,6 @@ participants.distributeIntoStartblocks = (participants, blocks) => {
 
   let lastBlock = distribution.length - 1;
   distribution[lastBlock].amount = _.last(distribution).amount + restOfTheParticipants;
-  console.log(distribution);
   return distribution;
 };
 
@@ -345,7 +344,6 @@ participants.bulkmail = () => {
 async function oneMailAfterTheOther(participants) {
   for(const participant of participants) {
     await sendInfoMailTo(participant);
-    console.log('sending email', participant.start_number);
     await sleep(1000);
   }
 }

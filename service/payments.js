@@ -1,11 +1,28 @@
 "use strict";
 
-const bankStatement = require('service/bankStatement');
-
+const Q = require('q');
+const participants = require('../service/participants')
 const payments = {};
 
-payments.processBankStatement = (file) => {
-  return bankStatement.parse(file)
+payments.validate = (possible_payments) => {
+  const deferred = Q.defer();
+  let validated_participants = [];
+  let promises = [];
+  possible_payments.forEach((possible_payment) => {
+    let confirmed_payment = possible_payment.getPossibleTokens();
+    confirmed_payment.forEach((token) => {
+      let participants_promise = participants.get.byPaymentToken(token)
+        .then((participant) => {
+          validated_participants.push({participant: participant, found: true, reason: possible_payment.getReason()})
+        })
+        .catch(() => {
+          validated_participants.push({participant: {paymenttoken: token}, found: false, reason: possible_payment.getReason()})
+        });
+     promises.push(participants_promise);
+    })
+  });
+  Promise.all(promises).then(() => deferred.resolve(validated_participants));
+  return deferred.promise;
 };
 
 module.exports = payments;

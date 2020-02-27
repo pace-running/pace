@@ -36,7 +36,6 @@ const bankStatement = {};
 bankStatement.parse = (file) => {
   const deferred = Q.defer();
   const results = [];
-  console.log('starting');
   csv
     .parseFile(file.path, {delimiter: ';', headers: headers})
     .on('error', error => console.error('AAAAAHHH:', error))
