@@ -1,0 +1,12 @@
+extends ../adminLayout.pug
+
+block content
+  h3 Payment processing
+  form(method="POST", action="/admin/paymentprocessing/import?_csrf="+csrf, enctype="multipart/form-data")
+    .row
+      input(type="file", name="displayImage")
+    .row
+      .eight.columns.padding
+        button#upload-results.primary.button-primary.pace.u-full-width(type='submit') Ergebnisse importieren
+
+

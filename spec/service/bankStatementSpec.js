@@ -18,8 +18,8 @@ describe('bank statement service', () => {
 
   it('opens csv files', (done) => {
     let filename = './spec/service/bank_statement.csv';
-    var readStream = fs.createReadStream(filename);
-    bankStatement.parse(readStream)
+    let file = {path: filename}
+    bankStatement.parse(file)
       .then((results) => {
         let paymentRow = results[0];
         expect(paymentRow.getReason()).toContain('LGR-JHPQB');

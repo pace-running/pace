@@ -26,6 +26,7 @@ let apiRoute = require('./routes/api');
 let adminParticipantsRoute = require('./routes/admin/participants');
 let adminEditParticipantRoute = require('./routes/admin/editParticipant');
 let adminAfterRoute = require('./routes/admin/after');
+let paymentProcessingRoute = require('./routes/admin/paymentProcessing')
 let paymentValidationRoute = require('./routes/admin/paymentValidation');
 let couponcodeRoute = require('./routes/admin/couponcodes');
 let resultRoute = require('./routes/results/results');
@@ -144,6 +145,7 @@ app.use('/admin/participants', adminParticipantsRoute);
 app.use('/admin/editparticipant', adminEditParticipantRoute);
 app.use('/admin/after', adminAfterRoute);
 app.use('/admin/couponcodes', couponcodeRoute);
+app.use('/admin/paymentprocessing', paymentProcessingRoute);
 
 /// Websocket initialization
 app.startWebSocketServer = (server) => {

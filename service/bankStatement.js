@@ -33,11 +33,12 @@ function PaymentRow(statement) {
 }
 
 const bankStatement = {};
-bankStatement.parse = (readStream) => {
+bankStatement.parse = (file) => {
   const deferred = Q.defer();
   const results = [];
+  console.log('starting');
   csv
-    .parseStream(readStream, {delimiter: ';', headers: headers})
+    .parseFile(file.path, {delimiter: ';', headers: headers})
     .on('error', error => console.error('AAAAAHHH:', error))
     .on("data", (statement) => {
       if(buchungstagPattern.test( statement.Buchungstag))
