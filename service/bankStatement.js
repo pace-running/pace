@@ -19,6 +19,10 @@ function PaymentRow(statement) {
 
   const getReason = () => reason;
 
+  const getAmount = () => {
+    return statement['Umsatz'];
+  }
+
   const getPossibleTokens = () => {
     return removeBIC(removeIBAN(removeNewLines(removeUberweisung(reason))))
       .trim()
@@ -28,7 +32,8 @@ function PaymentRow(statement) {
 
   return {
     getPossibleTokens,
-    getReason
+    getReason,
+    getAmount
   }
 }
 

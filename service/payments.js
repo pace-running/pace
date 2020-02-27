@@ -13,10 +13,10 @@ payments.validate = (possible_payments) => {
     confirmed_payment.forEach((token) => {
       let participants_promise = participants.get.byPaymentToken(token)
         .then((participant) => {
-          validated_participants.push({participant: participant, found: true, reason: possible_payment.getReason()})
+          validated_participants.push({participant: participant, valid: true, reason: possible_payment.getReason(), amount: possible_payment.getAmount()})
         })
         .catch(() => {
-          validated_participants.push({participant: {paymenttoken: token}, found: false, reason: possible_payment.getReason()})
+          validated_participants.push({participant: {paymenttoken: token}, valid: false, reason: possible_payment.getReason(), amount: possible_payment.getAmount()})
         });
      promises.push(participants_promise);
     })
