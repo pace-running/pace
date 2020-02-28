@@ -21,14 +21,24 @@ router.post('/import', isAuthenticated, (req, res) => {
       .then((reasons) => {
         payments.validate(reasons)
           .then((result) => {
-            res.send(result);
+            console.log(result);
+            res.render('admin/paymentProcessing', {
+              isAdmin: true,
+              csrf: req.csrfToken(),
+              validated: result
+            });
           })
-    })
+      })
   });
   form.on('error', function (err) {
     console.log(err);
   });
 });
+router.post('/validate', isAuthenticated, (req, res) => {
+  console.log(req.body);
+  res.send('hallo');
+});
+
 
 
 module.exports = router;

@@ -257,3 +257,11 @@ input[type="button"].button-primary:focus {
   color: rgb(212, 64, 52);
 }
 
+.valid-payment {
+  color: #2E8B57;
+  margin: 10px;
+}
+.invalid-payment {
+  color: crimson;
+  margin: 10px;
+}
