@@ -14,8 +14,6 @@ payments.validate = (possible_payments) => {
     confirmed_payment.forEach((token) => {
       let participants_promise = participants.get.byPaymentToken(token)
         .then((participant) => {
-          let cost = calculator.priceFor(participant);
-          if (possible_payment.getAmount() == cost) {
             if (participant.has_payed == false) {
               validated_participants.push({
                 participant: participant,
@@ -32,15 +30,7 @@ payments.validate = (possible_payments) => {
                 amount: possible_payment.getAmount()
               })
             }
-          } else {
-            validated_participants.push({
-              participant: participant,
-              valid: false,
-              reason: 'Betrag stimmt nicht. Es wurden' + cost + ' Euro erwartet',
-              amount: possible_payment.getAmount()
-            })
-            }
-          })
+         })
         .catch(() => {
           validated_participants.push({participant: {paymenttoken: token}, valid: false, reason: 'Nicht gefunden:' + possible_payment.getReason(), amount: possible_payment.getAmount()})
         });
