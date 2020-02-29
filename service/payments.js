@@ -2,7 +2,6 @@
 
 const Q = require('q');
 const participants = require('../service/participants');
-const calculator = require('../domain/costCalculator');
 const payments = {};
 
 payments.validate = (possible_payments) => {
