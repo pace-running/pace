@@ -1,7 +1,8 @@
 "use strict";
 
 const Q = require('q');
-const participants = require('../service/participants')
+const participants = require('../service/participants');
+const calculator = require('../domain/costCalculator');
 const payments = {};
 
 payments.validate = (possible_payments) => {
@@ -13,10 +14,35 @@ payments.validate = (possible_payments) => {
     confirmed_payment.forEach((token) => {
       let participants_promise = participants.get.byPaymentToken(token)
         .then((participant) => {
-          validated_participants.push({participant: participant, valid: true, reason: possible_payment.getReason(), amount: possible_payment.getAmount()})
-        })
+          let cost = calculator.priceFor(participant);
+          if (possible_payment.getAmount() == cost) {
+            if (participant.has_payed == false) {
+              validated_participants.push({
+                participant: participant,
+                valid: true,
+                reason: 'Token gefunden',
+                amount: possible_payment.getAmount()
+              })
+            } else {
+              console.log(participant);
+              validated_participants.push({
+                participant: participant,
+                valid: false,
+                reason: 'Schon bezahlt',
+                amount: possible_payment.getAmount()
+              })
+            }
+          } else {
+            validated_participants.push({
+              participant: participant,
+              valid: false,
+              reason: 'Betrag stimmt nicht. Es wurden' + cost + ' Euro erwartet',
+              amount: possible_payment.getAmount()
+            })
+            }
+          })
         .catch(() => {
-          validated_participants.push({participant: {paymenttoken: token}, valid: false, reason: possible_payment.getReason(), amount: possible_payment.getAmount()})
+          validated_participants.push({participant: {paymenttoken: token}, valid: false, reason: 'Nicht gefunden:' + possible_payment.getReason(), amount: possible_payment.getAmount()})
         });
      promises.push(participants_promise);
     })
@@ -26,13 +52,19 @@ payments.validate = (possible_payments) => {
 };
 
 payments.confirm = (confirmed_tokens) => {
-  const deferred = Q.defer();
-  confirmed_tokens.forEach((token) => {
-    participants.get.byPaymentToken(token)
+  if (Array.isArray(confirmed_tokens)) {
+    confirmed_tokens.forEach((token) => {
+      participants.get.byPaymentToken(token)
+        .then((participant) => {
+          participants.markPayed(participant.id)
+        })
+    });
+  } else {
+    participants.get.byPaymentToken(confirmed_tokens)
       .then((participant) => {
         participants.markPayed(participant.id)
       })
-  });
+  }
 };
 
 module.exports = payments;

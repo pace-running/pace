@@ -7,8 +7,7 @@ block content
     each participant in validated
       div(class=participant.valid ? 'valid-payment' : 'invalid-payment')
         div Token: #{participant.participant.paymenttoken}
-        div Gültig: #{participant.valid}
-        div Verwendungszweck: #{participant.reason}
+        div Status: #{participant.reason}
         div Betrag: #{participant.amount}
     form(method="POST", action="/admin/paymentprocessing/validate?_csrf="+csrf)
       each participant in validated
