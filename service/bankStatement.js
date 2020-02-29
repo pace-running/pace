@@ -7,6 +7,7 @@ const headers = [
     'Buchungstag', 'Valuta', 'Textschl黶sel', 'Auftraggeber/Zahlungsempfänger', 'Empfänger/Zahlungspflichtiger', 'Konto-Nr.', 'IBAN', 'BLZ', 'BIC', 'Vorgang/Verwendungszweck', 'Kundenreferenz', 'Währung', 'Umsatz', 'H'
 ];
 const TOKEN_LENGTH = 9;
+const TOKEN_PREFIX = 'LGR-';
 
 const buchungstagPattern = /\d{2}\.\d{2}\.\d{4}/;
 
@@ -27,7 +28,8 @@ function PaymentRow(statement) {
     return removeBIC(removeIBAN(removeNewLines(removeUberweisung(reason))))
       .trim()
       .split(' ')
-      .filter(text => text.length===TOKEN_LENGTH);
+      .filter(text => text.length===TOKEN_LENGTH)
+      .filter(text => text.startsWith(TOKEN_PREFIX));
   };
 
   return {

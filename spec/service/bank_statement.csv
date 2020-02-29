@@ -1,19 +1,38 @@
-
-
-"Umsatzanzeige"
-
-"BLZ:";"20190003";;"Datum:";"26.02.2020"
-"Konto:";"19400420";;"Uhrzeit: ";"14:26:27"
-"Abfrage von:";"Tim Ole Brückner";;"Kontoinhaber:";"Fußball-Club St. Pauli"
-
-"Zeitraum";"1 Woche";"von:";"01.02.2020";"bis:";"26.02.2020"
-"Betrag in EUR";;"von:";"0,00 H";"bis:";"500,00 H"
-"Primanotanummer";;"von:";;"bis";
-"Textschlüssel";;"von:";;"bis:";
-
-
-
-"Buchungstag";"Valuta";"Textschlüssel";"Primanota";"Zahlungsempfänger";"ZahlungsempfängerKto";"ZahlungsempfängerIBAN";"ZahlungsempfängerBLZ";"ZahlungsempfängerBIC";"Vorgang/Verwendungszweck";"Kundenreferenz";"Währung";"Umsatz";"Soll/Haben"
+
+
+
+
+"Umsatzanzeige"
+
+
+
+"BLZ:";"20190003";;"Datum:";"26.02.2020"
+
+"Konto:";"19400420";;"Uhrzeit: ";"14:26:27"
+
+"Abfrage von:";"Tim Ole Brückner";;"Kontoinhaber:";"Fußball-Club St. Pauli"
+
+
+
+"Zeitraum";"1 Woche";"von:";"01.02.2020";"bis:";"26.02.2020"
+
+"Betrag in EUR";;"von:";"0,00 H";"bis:";"500,00 H"
+
+"Primanotanummer";;"von:";;"bis";
+
+"Textschlüssel";;"von:";;"bis:";
+
+
+
+
+
+
+
+"Buchungstag";"Valuta";"Textschlüssel";"Primanota";"Zahlungsempfänger";"ZahlungsempfängerKto";"ZahlungsempfängerIBAN";"ZahlungsempfängerBLZ";"ZahlungsempfängerBIC";"Vorgang/Verwendungszweck";"Kundenreferenz";"Währung";"Umsatz";"Soll/Haben"
+
 "26.02.2020";"26.02.2020";"51 Überweisungsgutschr.";"931";"Irgendwer";;"DE00000000000";;"GENO0000000";"LGR-JHPQB KXDNF EREF: AAA.52.AE.00000
 IBAN: DE00000000000000000000
-00 BIC: C0000000000";;"EUR";"10,00";"H"
+00 BIC: C0000000000";;"EUR";"10,00";"H"
+"26.02.2020";"26.02.2020";"51 Überweisungsgutschr.";"931";"Irgendwer";;"DE00000000000";;"GENO0000000";"LUR-JHPQB KXDNF EREF: AAA.52.AE.00000
+IBAN: DE00000000000000000000
+00 BIC: C0000000000";;"EUR";"10,00";"H"
