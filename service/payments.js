@@ -2,43 +2,55 @@
 
 const Q = require('q');
 const participants = require('../service/participants');
+const tshirts = require('../service/tshirts');
+const calculator = require('../domain/costCalculator');
 const payments = {};
 
 payments.validate = (possible_payments) => {
   const deferred = Q.defer();
-  let validated_participants = [];
-  let promises = [];
-  possible_payments.forEach((possible_payment) => {
-    let confirmed_payment = possible_payment.getPossibleTokens();
-    confirmed_payment.forEach((token) => {
-      let participants_promise = participants.get.byPaymentToken(token)
-        .then((participant) => {
-            if (participant.has_payed == false) {
-              validated_participants.push({
-                participant: participant,
-                valid: true,
-                reason: 'Token gefunden',
-                amount: possible_payment.getAmount()
-              })
-            } else {
-              console.log(participant);
-              validated_participants.push({
-                participant: participant,
-                valid: false,
-                reason: 'Schon bezahlt',
-                amount: possible_payment.getAmount()
-              })
-            }
-         })
-        .catch(() => {
-          validated_participants.push({participant: {paymenttoken: token}, valid: false, reason: 'Nicht gefunden:' + possible_payment.getReason(), amount: possible_payment.getAmount()})
-        });
-     promises.push(participants_promise);
-    })
+  validate_payments(possible_payments).then((result) => {
+    deferred.resolve(result);
+  }).catch((err) => {
+    deferred.reject(err);
   });
-  Promise.all(promises).then(() => deferred.resolve(validated_participants));
   return deferred.promise;
-};
+}
+
+async function validate_payments(possible_payments) {
+  let validated_participants = [];
+  for (const possible_payment of possible_payments) {
+    for (const token of possible_payment.getPossibleTokens()) {
+      try {
+        let participant = await participants.get.byPaymentToken(token)
+        let valid_amount = await validate_amount(participant, possible_payment.getAmount());
+        let current_participant = {
+          participant: participant,
+          amount: possible_payment.getAmount(),
+          valid: true,
+          reason: 'Token gefunden'
+        };
+       if (!valid_amount) {
+            current_participant.valid = false;
+            current_participant.reason = 'Ungültiger Betrag ';
+        }
+        if (participant.has_payed == true) {
+          current_participant.valid = false;
+          current_participant.reason = 'Schon bezahlt'
+        }
+        validated_participants.push(current_participant);
+      }
+      catch(e) {
+        validated_participants.push({participant: {paymenttoken: token}, valid: false, reason: 'Nicht gefunden:' + possible_payment.getReason(), amount: possible_payment.getAmount()})
+      }
+    }
+  }
+  return validated_participants;
+}
+
+async function validate_amount(participant,expected_amount) {
+ let p = await tshirts.findAndAddTo(participant);
+ return await calculator.priceFor(p) == expected_amount;
+}
 
 payments.confirm = (confirmed_tokens) => {
   if (Array.isArray(confirmed_tokens)) {
