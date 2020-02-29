@@ -25,4 +25,14 @@ payments.validate = (possible_payments) => {
   return deferred.promise;
 };
 
+payments.confirm = (confirmed_tokens) => {
+  const deferred = Q.defer();
+  confirmed_tokens.forEach((token) => {
+    participants.get.byPaymentToken(token)
+      .then((participant) => {
+        participants.markPayed(participant.id)
+      })
+  });
+};
+
 module.exports = payments;

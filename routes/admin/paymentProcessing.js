@@ -21,7 +21,6 @@ router.post('/import', isAuthenticated, (req, res) => {
       .then((reasons) => {
         payments.validate(reasons)
           .then((result) => {
-            console.log(result);
             res.render('admin/paymentProcessing', {
               isAdmin: true,
               csrf: req.csrfToken(),
@@ -34,9 +33,10 @@ router.post('/import', isAuthenticated, (req, res) => {
     console.log(err);
   });
 });
+
 router.post('/validate', isAuthenticated, (req, res) => {
-  console.log(req.body);
-  res.send('hallo');
+  payments.confirm(req.body.valid);
+  res.redirect('/admin/paymentprocessing');
 });
 
 

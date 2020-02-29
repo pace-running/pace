@@ -20,7 +20,6 @@ router.get('/', isAuthenticated, (req, res) => {
 
 router.post('/', isAuthenticated, (req, res) => {
   startblocks.save(req.body);
-
   res.redirect('/admin/after');
 });
 

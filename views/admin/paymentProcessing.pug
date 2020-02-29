@@ -10,13 +10,13 @@ block content
         div Gültig: #{participant.valid}
         div Verwendungszweck: #{participant.reason}
         div Betrag: #{participant.amount}
-    form(method="POST", action="/admin/paymentprocessing/validate?_csrf="+csrf, enctype="multipart/form-data")
+    form(method="POST", action="/admin/paymentprocessing/validate?_csrf="+csrf)
       each participant in validated
         if participant.valid
-          input(type='hidden', name='valid[]', value=participant.participant.paymenttoken)
+          input(type='hidden', name='valid', value=participant.participant.paymenttoken)
       .row
         .eight.columns.padding
-          button#upload-results.primary.button-primary.pace.u-full-width(type='submit') Als bezahlt bestätigen
+          button#validate-results.primary.button-primary.pace.u-full-width(type='submit') Als bezahlt bestätigen
   h3 Import
   form(method="POST", action="/admin/paymentprocessing/import?_csrf="+csrf, enctype="multipart/form-data")
     .row
