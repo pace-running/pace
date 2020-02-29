@@ -12,6 +12,7 @@ const buchungstagPattern = /\d{2}\.\d{2}\.\d{4}/;
 
 function PaymentRow(statement) {
   const reason = statement['Vorgang/Verwendungszweck'];
+  console.log(reason);
   const removeUberweisung = (text) => text.replace(/^.*berweisungsgutschr\./, '');
   const removeNewLines = (text) => text.replace(/\n/g, '');
   const removeIBAN = (text) => text.replace(/IBAN:\sDE\d{20}/g, '');
@@ -20,7 +21,7 @@ function PaymentRow(statement) {
   const getReason = () => reason;
 
   const getAmount = () => {
-    return statement['Umsatz'];
+    return statement.Umsatz;
   }
 
   const getPossibleTokens = () => {

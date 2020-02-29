@@ -1,31 +1,19 @@
-Umsatzanzeige;;;;;;;;;;;;
-;;;;;;;;;;;;
-BLZ:;20191000;;Datum:;10.01.2019;;;;;;;;
-Konto:;19400420;;Uhrzeit:;09:27:20;;;;;;;;
-Abfrage von:;Vorname Nachname;;Kontoinhaber:;Fußball-Club St. Pauli;;;;;;;;
-;;;;;;;;;;;;
-Zeitraum:;Alle Umsätze;von:;;bis:;;;;;;;;
-Betrag in EUR:;;von:; ;bis:; ;;;;;;;
-Sortiert nach:;Buchungstag;absteigend;;;;;;;;;;
-;;;;;;;;;;;;
-Buchungstag;Valuta;Auftraggeber/Zahlungsempfänger;Empfänger/Zahlungspflichtiger;Konto-Nr.;IBAN;BLZ;BIC;Vorgang/Verwendungszweck;Kundenreferenz;Währung;Umsatz;
-15.02.2019;15.02.2019;FC St. Pauli Marathon;Sven Schmidt;;DE00000000000000000000;;GENODEF1HH2;"Überweisungsgutschr.
-LGR-JHPQB Christoph Schmidt IBAN: DE
-00000000000000000000 BIC: C
-OBADEHD001";;EUR;20;H
-15.02.2019;15.02.2019;FC St. Pauli Marathon;Sven Schmidt;;DE00000000000000000000;;GENODEF1HH2;"Überweisungsgutschr.
-TOWMW Sabine Schneider IBAN:
-DE00000000000000000000 BIC:
-COBADEHD001";;EUR;10;H
-15.02.2019;15.02.2019;FC St. Pauli Marathon;Sven Schmidt;;DE00000000000000000000;;GENODEF1HH2;"Überweisungsgutschr.
-LGR-YMTGE Sven Schmidt IBAN: DE2
-DE26200411330264475500
-0000000000000000000 BIC: CO
-BADEHD001";;EUR;20;H
-15.02.2019;15.02.2019;FC St. Pauli Marathon;Irgendwer Mueller / 20057 Hamburg-St. Pauli;;DE00000000000000000000;;GENODEF1HH2;"Überweisungsgutschr.
-LGR-RKMBD Startnummer: 439 IBAN
-: DE00000000000000000000 BI
-C: VOWADE2B";;EUR;20;H
-14.02.2019;14.02.2019;FC St. Pauli Marathon;Wolfgang Meyer;;DE00000000000000000000;;GENODEF1HH2;"Überweisungsgutschr.
-LGR-RZFXU IBAN: DE0000000000000000
-0000 BIC: CSDBDE71";;EUR;20;H
+
+
+"Umsatzanzeige"
+
+"BLZ:";"20190003";;"Datum:";"26.02.2020"
+"Konto:";"19400420";;"Uhrzeit: ";"14:26:27"
+"Abfrage von:";"Tim Ole Brückner";;"Kontoinhaber:";"Fußball-Club St. Pauli"
+
+"Zeitraum";"1 Woche";"von:";"01.02.2020";"bis:";"26.02.2020"
+"Betrag in EUR";;"von:";"0,00 H";"bis:";"500,00 H"
+"Primanotanummer";;"von:";;"bis";
+"Textschlüssel";;"von:";;"bis:";
+
+
+
+"Buchungstag";"Valuta";"Textschlüssel";"Primanota";"Zahlungsempfänger";"ZahlungsempfängerKto";"ZahlungsempfängerIBAN";"ZahlungsempfängerBLZ";"ZahlungsempfängerBIC";"Vorgang/Verwendungszweck";"Kundenreferenz";"Währung";"Umsatz";"Soll/Haben"
+"26.02.2020";"26.02.2020";"51 Überweisungsgutschr.";"931";"Irgendwer";;"DE00000000000";;"GENO0000000";"LGR-JHPQB KXDNF EREF: AAA.52.AE.00000
+IBAN: DE00000000000000000000
+00 BIC: C0000000000";;"EUR";"10,00";"H"

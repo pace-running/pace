@@ -1,7 +1,6 @@
 'use strict';
 
 const bankStatement = require('../../service/bankStatement');
-const fs = require('fs');
 /* jshint node: true */
 /* global describe, beforeAll, afterAll, it, expect */
 
@@ -24,9 +23,8 @@ describe('bank statement service', () => {
         let paymentRow = results[0];
         expect(paymentRow.getReason()).toContain('LGR-JHPQB');
         let possibleTokens = paymentRow.getPossibleTokens();
-        expect(possibleTokens.length).toBe(2);
+        expect(possibleTokens.length).toBe(1);
         expect(possibleTokens).toContain('LGR-JHPQB');
-        expect(possibleTokens).toContain('Christoph');
         done();
       })
       .catch(done.fail);
