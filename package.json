@@ -58,7 +58,7 @@
     "jshint-stylish": "^2.2.1",
     "mockery": "^2.0.0",
     "request": "^2.87.0",
-    "yargs": "^13.1.0"
+    "yargs": "^15.2.0"
   },
   "greenkeeper": {
     "ignore": [
