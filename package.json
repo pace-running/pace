@@ -45,7 +45,7 @@
     "rescode": "~0.1.10",
     "serve-favicon": "~2.5.0",
     "validator": "^10.11.0",
-    "ws": "^7.0.0"
+    "ws": "^7.2.3"
   },
   "devDependencies": {
     "cypress": "^3.8.2",
