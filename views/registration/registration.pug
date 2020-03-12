@@ -2,7 +2,7 @@ extends ../guestLayout.pug
 
 block content
   if registrationClosed
-    h4.black.centered Die online Anmeldung ist zur Zeit geschlossen und ab ab dem 1.2.2020 geöffnet
+    h4.black.centered Die online Anmeldung ist wegen Corona zur Zeit geschlossen.
   else
     h4.black.centered Melde dich hier zum Lauf an
     form#registrationForm(method='POST', action='/registration')
@@ -85,10 +85,10 @@ block content
                 each size in shirts[0].sizes
                   option(value=size)=size
       div
-        small Mir ist bewusst, dass die Datenverarbeitung entsprechend der Datenschutzbestimmungen der Webseite 
-        a(href='/impressum') lauf-gegen-rechts.de 
-        small erfolgt. Ich weiß, dass meine Einwilligung bzw. Einwilligungen bezüglich 
-        small 
+        small Mir ist bewusst, dass die Datenverarbeitung entsprechend der Datenschutzbestimmungen der Webseite
+        a(href='/impressum') lauf-gegen-rechts.de
+        small erfolgt. Ich weiß, dass meine Einwilligung bzw. Einwilligungen bezüglich
+        small
           ul
             li der Verarbeitung meiner Anmeldedaten (Vorname, Nachname, E-Mail-Adresse, Geburtsjahr, den Namen Ihres Teams und/oder Angaben zum Laufverhalten)
             li der Aufnahme und Veröffentlichung in der Teilnehmer*Innen-Liste
