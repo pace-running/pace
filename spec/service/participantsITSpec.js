@@ -623,7 +623,7 @@ describe('participants service', () => {
           expect(mails.sendEmail).toHaveBeenCalledTimes(2);
           expect(mails.sendStatusEmail).toHaveBeenCalledTimes(2);
           let content = mails.sendEmail.calls.mostRecent().args[2];
-          expect(content).toMatch(/Startnummer/);
+          expect(content).toMatch(/FC St. Pauli/);
           done();
         })
         .catch(done.fail);
