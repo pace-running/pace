@@ -332,11 +332,8 @@ participants.bulkmail = () => {
   const deferred = Q.defer();
 
   participants.get.confirmed().then(confirmed => {
-    participants.get.registered().then(unconfirmed => {
-      oneMailAfterTheOther(unconfirmed);
       oneMailAfterTheOther(confirmed);
       deferred.resolve();
-    });
   }).catch(deferred.reject);
   return deferred.promise;
 };

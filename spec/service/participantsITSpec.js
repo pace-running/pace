@@ -612,7 +612,7 @@ describe('participants service', () => {
   });
 
   describe('bulkmail()', () => {
-    it('should send the correct email to every participant', (done) => {
+    it('should send the correct only to confirmed participants', (done) => {
       spyOn(mails, 'sendEmail');
       spyOn(mails, 'sendStatusEmail').and.callThrough();
       participants.save(aParticipant.withStartNr(startNr++))
@@ -620,10 +620,10 @@ describe('participants service', () => {
         .then(participants.save(aSecondParticipant.withToken('tokenYY').withStartNr(startNr++)))
         .then(participants.bulkmail)
         .then(() => {
-          expect(mails.sendEmail).toHaveBeenCalledTimes(2);
-          expect(mails.sendStatusEmail).toHaveBeenCalledTimes(2);
+          expect(mails.sendEmail).toHaveBeenCalledTimes(1);
+          expect(mails.sendStatusEmail).toHaveBeenCalledTimes(1);
           let content = mails.sendEmail.calls.mostRecent().args[2];
-          expect(content).toMatch(/FC St. Pauli/);
+          expect(content).toMatch(/Liebe/);
           done();
         })
         .catch(done.fail);
