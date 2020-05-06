@@ -49,7 +49,12 @@ async function validate_payments(possible_payments) {
 
 async function validate_amount(participant,expected_amount) {
  let p = await tshirts.findAndAddTo(participant);
- return await calculator.priceFor(p) == expected_amount;
+ let amount_to_pay = await calculator.priceFor(p);
+ if ((amount_to_pay == expected_amount) || ((amount_to_pay + 4) == expected_amount)) {
+   return true;
+ } else {
+   return false;
+ }
 }
 
 payments.confirm = (confirmed_tokens) => {
