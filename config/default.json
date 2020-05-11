@@ -38,5 +38,6 @@
   "proxy":false,
   "https":false,
   "teamEvent" : false,
-  "mailserver": "smtp://localhost:25?pool=true&ignoreTLS=true"
+  "mailserver": "smtp://localhost:25?pool=true&ignoreTLS=true",
+  "pdf-url": "http://localhost:3001"
 }

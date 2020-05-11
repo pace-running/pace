@@ -9,6 +9,8 @@ let bodyParser = require('body-parser');
 let passport = require('passport');
 let LocalStrategy = require('passport-local').Strategy;
 let flash = require('connect-flash');
+var proxy = require('express-http-proxy');
+ 
 
 let indexRoute = require('./routes/index');
 let impressumRoute = require('./routes/impressum');
@@ -121,6 +123,8 @@ passport.use(new LocalStrategy(
         }
     }
 ));
+
+app.use('/pdf', proxy(config.get('pdf-url')));
 
 if (config.get('teamEvent')) {
   app.use('/registration', teamsRegistrationRoute);
