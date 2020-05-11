@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: pace-pdf-app
-        image: pacerunning/pace-pdf-app
+        image: pacerunning/pace-pdf
         ports:
         - containerPort: 3001
         env:
