@@ -97,12 +97,12 @@ describe('pdfGeneration', () => {
     it('should add start number', () => {
       pdfGeneration.createStartNumberPage(documentMock, startNumberData);
 
-      expect(documentMock.text.calls.argsFor(0)).toEqual(['1234', 0, 100, {align: 'center'}]);
+      expect(documentMock.text.calls.argsFor(0)).toEqual(['1234', 0, 120, {align: 'center'}]);
     });
 
     it('should add the first name and team name', () => {
       pdfGeneration.createStartNumberPage(documentMock, startNumberData);
-      expect(documentMock.text.calls.argsFor(1)).toEqual(['Digital - Unicorns', 0, 370, {align: 'center'}]);
+      expect(documentMock.text.calls.argsFor(1)).toEqual(['Digital - Unicorns', 0, 290, {align: 'center'}]);
     });
 
     it('should add the QR code to the self-service link', () => {
