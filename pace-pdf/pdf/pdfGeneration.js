@@ -26,14 +26,12 @@ pdfGeneration.addCheckmarkSymbol = (doc) => {
   doc.translate(12, 20)
     .path(checkmarkSymbolSvg)
     .lineWidth(3)
-    .stroke();
+    .stroke("green");
 };
 
 pdfGeneration.addQrCodeWithSelfServiceLink = (doc, selfServiceUrl) => {
-  doc.fontSize(10).fillColor('white').text('Registriere dich', 120, 365);
-  doc.fontSize(10).fillColor('white').text('nach dem Lauf', 120, 376);
-  doc.fontSize(10).fillColor('white').text('unter diesem Link', 120, 387);
-  doc.rect(20,310,98,98).fill('white');
+  doc.fontSize(10).fillColor('white').text('Registriere Dich unter diesem Link', 120, 387);
+  doc.rect(20,310,85,85).fill('white');
   doc.scale(2)
     .translate(10, 155)
     .path(qr.svgObject(selfServiceUrl).path)
@@ -56,14 +54,12 @@ pdfGeneration.createStartNumberPage = (doc, startNumberData) => {
   //  doc.image(__dirname + pathToLogoLeft, 20, 20, {fit: [100, 100]});
   doc.image(__dirname + pathToLogoRight, 475, 10, {fit: [100, 100]});
 
-  doc.font('Helvetica-Bold').fontSize(200).fillColor(startNumberData.startBlockColor).text(startNumberData.startNumber, 0, 100, {align: 'center'});
-  doc.fontSize(30).fillColor('white').text(startNumberData.firstname.substring(0, 17)+ ' - ' + startNumberData.team.substring(0,25), 0, 370, {align: 'center'});
+  doc.font('Helvetica-Bold').fontSize(200).fillColor(startNumberData.startBlockColor).text(startNumberData.startNumber, 0, 120, {align: 'center'});
+  doc.fontSize(40).fillColor('white').text(startNumberData.firstname.substring(0, 17)+ ' - ' + startNumberData.team.substring(0,25), 0, 290, {align: 'center'});
   console.log(startNumberData.startBlockColor);
 
-  doc.fontSize(35).fillColor(startNumberData.startBlockColor).text('Startblock: '+startNumberData.startBlock, 200, 20, {align: 'left'});
-
   if(startNumberData.tshirt) {
-    doc.fontSize(12).fillColor('black').text(startNumberData.tshirt.size + ' ' + startNumberData.tshirt.model, 10, 10);
+    doc.fontSize(12).fillColor('green').text(startNumberData.tshirt.size + ' ' + startNumberData.tshirt.model, 10, 10);
   }
 
   if(startNumberData.hasPayed) {
