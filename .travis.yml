@@ -22,7 +22,3 @@ deploy:
     script: bash .travis/deploy.sh dev
     on:
       branch: master
-  - provider: script
-    script: bash .travis/deploy.sh prod
-    on:
-      branch: master
