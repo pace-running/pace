@@ -9,6 +9,12 @@ spec:
       labels:
         deployment: pace-pdf-app-deployment
     spec:
+      volumes:
+       - name: "data"
+         nfs:
+           server: 10.245.232.242
+           path: "/"
+           readOnly: false
       containers:
       - name: pace-pdf-app
         image: pacerunning/pace-pdf
@@ -22,3 +28,7 @@ spec:
             secretKeyRef:
               name: db-secrets
               key: REDIS_URL
+        volumeMounts:
+          - mountPath: "/data"
+            name: "data"
+

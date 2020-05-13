@@ -15,7 +15,7 @@ pace-pdf:
   links:
     - redis
   volumes:
-    - data-volume:/pdf
+    - data-volume:/data
   environment:
     - REDIS_URL=redis://redis:6379
   ports:
@@ -25,7 +25,7 @@ pace-app:
   ports:
     - "3000:3000"
   volumes:
-    - data-volume:/pdf
+    - data-volume:/data
   links:
     - db
     - redis

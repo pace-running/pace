@@ -6,6 +6,7 @@ resources:
 - pdf-deployment.yaml
 - service.yaml
 - storage.yaml
+- nfs-pod.yaml
 
 secretGenerator:
 - name: db-secrets
