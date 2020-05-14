@@ -16,7 +16,7 @@ pdfRequests.setup(redis);
 
 
 let app = express();
-app.use('/pdf', apiRoute);
+app.use('/', apiRoute);
 app.use('/health',healthRoute);
 
 app.set('port', process.env.PORT || 3001);
