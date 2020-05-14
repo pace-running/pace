@@ -22,7 +22,7 @@ spec:
         - containerPort: 3001
         resources:
           limits:
-            memory: "512mi"
+            memory: "512Mi"
             cpu: 0.5
         env:
         - name: "PACE_PDF_PATH"
