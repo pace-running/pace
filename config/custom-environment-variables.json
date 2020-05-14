@@ -6,5 +6,5 @@
     "password": "ADMIN_PASSWORD",
     "token": "ADMIN_TOKEN"
   },
-  "pdf-url" : PACE_PDF_URL
+  "pdf-url" : "PACE_PDF_URL"
 }
