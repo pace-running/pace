@@ -13,3 +13,5 @@ spec:
             value: "production"
           - name: "PACE_URL"
             value: "https://www.lauf-gegen-rechts.de"
+          - name: "PACE_PDF_URL"
+            value: "http://prod-pace-pdf:3001"

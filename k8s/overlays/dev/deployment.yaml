@@ -11,3 +11,5 @@ spec:
         env:
         - name: "NODE_ENV"
           value: "dev"
+        - name: "PACE_PDF_URL"
+          value: "http://dev-pace-pdf:3001"
