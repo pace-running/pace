@@ -12,7 +12,7 @@ spec:
       volumes:
        - name: "data"
          nfs:
-           server: 10.245.232.242
+           server: 10.245.205.97
            path: "/"
            readOnly: false
       containers:

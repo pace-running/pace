@@ -38,6 +38,8 @@ spec:
         env:
         - name: "PACE_URL"
           value:  "https://dev.lauf-gegen-rechts.de"
+        - name: "PACE_PDF_URL"
+          value:  "http://pace-pdf:3001"
         - name: "NODE_ENV"
           value: "base"
         - name: "DATABASE_URL"

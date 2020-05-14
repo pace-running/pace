@@ -34,3 +34,14 @@ spec:
           - mountPath: "/data"
             name: "data"
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pace-pdf
+spec:
+  ports:
+    - name: pace-pdf
+      port: 3001
+  selector:
+    deployment: pace-pdf-app-deployment
