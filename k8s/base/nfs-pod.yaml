@@ -15,7 +15,7 @@ spec:
       volumes:
         - name: nfs-vol
           persistentVolumeClaim:
-            claimName: dev-pdf-pvc
+            claimName: df-pvc
       restartPolicy: Always
       containers:
         - name: nfs-server
