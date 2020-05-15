@@ -1,5 +1,7 @@
 /* jshint node: true */
 'use strict';
+
+const Q = require('q');
 let pdf = require('./pdf/pdfGeneration');
 let pdfRequests = {};
 
@@ -12,13 +14,20 @@ pdfRequests.setup = (redis) => {
 };
 
 pdfRequests.process = (channnel, msg) => {
-  pdf.generate(pdfRequests.parse(msg)).then(()=>{
-    console.log('finished writing');
-  })
+  const deferred = Q.defer();
+  let message = pdfRequests.parse(msg)
+  console.log('start: ', message.startNumber)
+  pdf.generate(message).then(()=>{
+    deferred.resolve();
+  }).catch(() => {deferred.reject()})
+  return deferred.promise
 };
 
 pdfRequests.enqueue = (channel,msg) => {
-  taskQueue.enqueue(() => pdfRequests.process(channel,msg));
+  let message = pdfRequests.parse(msg)
+  taskQueue.enqueue(() => pdfRequests.process(channel,msg))
+    .then(() => console.log('done:  ', message.startNumber))
+    .catch ((e) => console.log('something went wrong?', e));
 }
 pdfRequests.parse = (message) => {
  return JSON.parse(message);
