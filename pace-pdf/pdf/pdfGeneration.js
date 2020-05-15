@@ -39,13 +39,15 @@ pdfGeneration.addQrCodeWithSelfServiceLink = (doc, selfServiceUrl) => {
 };
 
 pdfGeneration.generate = (startNumberData) => {
-  let doc = new PDFDocument({size: 'A5', layout: 'landscape', margin: 0});
-  createOutputDir();
-  let pdfPath = `${config.get('pdfPath')}${startNumberData.startNumber}.pdf`;
-  doc.pipe(fs.createWriteStream(pdfPath));
-  pdfGeneration.createStartNumberPage(doc, startNumberData);
-  doc.end();
-  console.log('start_number pdf stored: %s',pdfPath);
+  if(startNumberData.hasPayed) {
+    let doc = new PDFDocument({size: 'A5', layout: 'landscape', margin: 0});
+    createOutputDir();
+    let pdfPath = `${config.get('pdfPath')}${startNumberData.startNumber}.pdf`;
+    doc.pipe(fs.createWriteStream(pdfPath));
+    pdfGeneration.createStartNumberPage(doc, startNumberData);
+    doc.end();
+    console.log('start_number pdf stored: %s', pdfPath);
+  }
 };
 
 pdfGeneration.createStartNumberPage = (doc, startNumberData) => {
