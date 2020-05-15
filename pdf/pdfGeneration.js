@@ -33,7 +33,7 @@ pdfGeneration.extractData = (participant) => {
 };
 
 pdfGeneration.generateStartNumbers = (redis) => {
-  return Q.all([participants.get.confirmed(), startblocks.all()])
+  return Q.all([participants.get.all(), startblocks.all()])
     .then((results) => {
       return participants.distributeIntoStartblocks(results[0], results[1]);
     })
