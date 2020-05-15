@@ -13,6 +13,9 @@ const editUrlHelper = require('../domain/editUrlHelper');
 const timeCalculator = require('../domain/timeCalculator');
 const queryHelper = require('./util/queryHelper');
 
+const createTaskQueue = require('sync-task-queue');
+const taskQueue = createTaskQueue();
+
 let participants = {
   get: {}
 };
@@ -329,30 +332,17 @@ participants.rankByCategory = (startnumber) => {
 };
 
 participants.bulkmail = () => {
-  const deferred = Q.defer();
-
   participants.get.confirmed().then(confirmed => {
-      oneMailAfterTheOther(confirmed);
-      deferred.resolve();
-  }).catch(deferred.reject);
-  return deferred.promise;
+      taskQueue.enqueue( () => {
+        mails.sendStatusEmail(confirmed, 'Lauf gegen Rechts - Infos zum Lauf', 'views/participants/bulkmail.pug')
+          .then(() => {
+            console.log('mail sent ')
+          })
+          .catch(error => {
+            console.log('mail sending failed: ', error)
+          })
+      });
+      })
 };
-
-async function oneMailAfterTheOther(participants) {
-  for(const participant of participants) {
-    await sendInfoMailTo(participant);
-    await sleep(1000);
-  }
-}
-
-function sleep(ms){
-    return new Promise(resolve=>{
-        setTimeout(resolve,ms);
-    })
-}
-
-async function sendInfoMailTo(participant) {
-  mails.sendStatusEmail(participant, 'Lauf gegen Rechts - Infos zum Lauf', 'views/participants/bulkmail.pug');
-}
 
 module.exports = participants;
