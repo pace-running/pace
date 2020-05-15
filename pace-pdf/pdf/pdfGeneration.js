@@ -18,7 +18,6 @@ let createOutputDir = () => {
 };
 
 const pathToBackgroundImage = '/images/background_light.jpg';
-const pathToLogoLeft = '/images/lauf_gegen_rechts_logo.jpg';
 const pathToLogoRight = '/images/fc_st_pauli_marathon_logo.png';
 const checkmarkSymbolSvg = 'M7.375,25 c0,0,10,11.375,14.125,11.375S44.875,8,44.875,8';
 
@@ -39,15 +38,20 @@ pdfGeneration.addQrCodeWithSelfServiceLink = (doc, selfServiceUrl) => {
 };
 
 pdfGeneration.generate = (startNumberData) => {
+  const deferred = Q.defer();
   if(startNumberData.hasPayed) {
     let doc = new PDFDocument({size: 'A5', layout: 'landscape', margin: 0});
     createOutputDir();
     let pdfPath = `${config.get('pdfPath')}${startNumberData.startNumber}.pdf`;
-    doc.pipe(fs.createWriteStream(pdfPath));
+    let fileStream = fs.createWriteStream(pdfPath);
+    doc.pipe(fileStream);
     pdfGeneration.createStartNumberPage(doc, startNumberData);
     doc.end();
     console.log('start_number pdf stored: %s', pdfPath);
+    fileStream.on('finish', () => {return deferred.resolve()})
+    fileStream.on('error', () => {return deferred.reject()})
   }
+  return deferred.promise;
 };
 
 pdfGeneration.createStartNumberPage = (doc, startNumberData) => {
