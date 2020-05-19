@@ -10,7 +10,7 @@ let passport = require('passport');
 let LocalStrategy = require('passport-local').Strategy;
 let flash = require('connect-flash');
 var proxy = require('express-http-proxy');
- 
+
 
 let indexRoute = require('./routes/index');
 let impressumRoute = require('./routes/impressum');
@@ -31,7 +31,6 @@ let adminAfterRoute = require('./routes/admin/after');
 let paymentProcessingRoute = require('./routes/admin/paymentProcessing')
 let paymentValidationRoute = require('./routes/admin/paymentValidation');
 let couponcodeRoute = require('./routes/admin/couponcodes');
-let resultRoute = require('./routes/results/results');
 let teamsResultRoute = require('./routes/teams/results');
 let certificateRoute = require('./routes/certificate');
 
@@ -132,7 +131,6 @@ if (config.get('teamEvent')) {
   app.use('/participants', teamsParticipantsRoute);
 } else {
   app.use('/registration', registrationRoute);
-  app.use('/results',resultRoute);
   app.use('/participants', participantsRoute);
 }
 app.use('/', indexRoute);
