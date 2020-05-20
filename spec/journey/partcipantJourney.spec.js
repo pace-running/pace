@@ -1,4 +1,4 @@
-/* global cy, context, it*/
+/* global cy, context, it, xit*/
 context('User registration', () => {
   it('allows to start via the registration page', () => {
     cy.visit('/registration')
@@ -80,7 +80,7 @@ context('User registration', () => {
       .get('input#firstname')
       .should('have.value','Hans')
   });
-  it('shows participant in list', () => {
+  xit('shows participant in list', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')
@@ -101,7 +101,7 @@ context('User registration', () => {
       .should('contain','Simone')
 
   })
-  it('does not show participant in list if they do not want to', () => {
+  xit('does not show participant in list if they do not want to', () => {
     cy.task('resetDb');
     cy.visit('/registration')
       .get('input#firstname')
