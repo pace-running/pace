@@ -14,8 +14,6 @@ context('User registration', () => {
       .select('yes')
       .get('select#goal')
       .select('moderate')
-      .get('input#shirt')
-      .click()
       .get('select')
       .get('button#submit')
       .click()
