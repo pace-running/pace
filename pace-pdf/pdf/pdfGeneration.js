@@ -39,24 +39,20 @@ pdfGeneration.addQrCodeWithSelfServiceLink = (doc, selfServiceUrl) => {
 
 pdfGeneration.generate = (startNumberData) => {
   const deferred = Q.defer();
-  if(startNumberData.hasPayed) {
-    let doc = new PDFDocument({size: 'A5', layout: 'landscape', margin: 0});
-    createOutputDir();
-    let pdfPath = `${config.get('pdfPath')}${startNumberData.startNumber}.pdf`;
-    let fileStream = fs.createWriteStream(pdfPath);
-    doc.pipe(fileStream);
-    pdfGeneration.createStartNumberPage(doc, startNumberData);
-    doc.end();
-    fileStream.on('finish', () => {
-      deferred.resolve()
-    })
-    fileStream.on('error', () => {
-      console.log('error writing file for ', startNumberData.startNumber)
-      deferred.reject()
-    })
-  } else {
-    deferred.resolve();
-  }
+  let doc = new PDFDocument({size: 'A5', layout: 'landscape', margin: 0});
+  createOutputDir();
+  let pdfPath = `${config.get('pdfPath')}${startNumberData.startNumber}.pdf`;
+  let fileStream = fs.createWriteStream(pdfPath);
+  doc.pipe(fileStream);
+  pdfGeneration.createStartNumberPage(doc, startNumberData);
+  doc.end();
+  fileStream.on('finish', () => {
+    deferred.resolve()
+  })
+  fileStream.on('error', () => {
+    console.log('error writing file for ', startNumberData.startNumber)
+    deferred.reject()
+  })
   return deferred.promise;
 };
 
