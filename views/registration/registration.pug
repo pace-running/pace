@@ -62,6 +62,28 @@ block content
           label(for='couponcode') Coupon Code*:
             input#couponcode.u-full-width(type='text', name='couponcode')
 
+      .row#shirt-checkbox
+        .twelve.columns.black.padding(style='height: 36px')
+          label(for='shirt') Laufshirt für 10 Euro gewünscht
+            input#shirt(type='checkbox', style="position: relative; right: -10px;" value='Yes', name='shirt')
+      .row#shirt-details(style='display: none')
+        .six.columns.center
+          img.center.tshirt.u-max-full-width(src='/images/tshirt.png')
+          div.small
+            a(href='/images/sizes.png') Grössentabelle
+          div.small T-Shirts von earth positive (Fair-Trade & klimaneutral)
+        .six.columns
+          .row
+            input#shirts(type='hidden' value=JSON.stringify(shirts))
+            label(for='model') Model:
+            select#model.u-full-width(name='model')
+              each model in shirts
+                option(value=model.value)=model.description
+
+            label(for='size') Size:
+              select#size.u-full-width(name='size')
+                each size in shirts[0].sizes
+                  option(value=size)=size
       div
         small Mir ist bewusst, dass die Datenverarbeitung entsprechend der Datenschutzbestimmungen der Webseite
         a(href='/impressum') lauf-gegen-rechts.de
