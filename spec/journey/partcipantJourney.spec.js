@@ -21,7 +21,7 @@ context('User registration', () => {
       .get('a#editurl')
       .should('exist')
       .get('span.amount')
-      .should('contain', '20.00')
+      .should('contain', '10.00')
   });
 
   it('doesnt display bank details and payment message when a valid coupon code is used', () => {
