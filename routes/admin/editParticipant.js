@@ -5,12 +5,17 @@ const router = require('express').Router();
 const config = require('config');
 const participants = require('../../service/participants');
 const participant = require('../../domain/participant');
+const editUrlHelper = require('../../domain/editUrlHelper');
 const isAdmin = require('../../acl/authentication');
 
 router.get('/:secureId', isAdmin, (req, res) => {
   const participantId = req.params.secureId;
     participants.get.bySecureId(participantId)
-      .then(p => res.render('admin/participants/editParticipant', {participant: p, participantid: participantId, teamEvent: config.get('teamEvent'), isAdmin: true}))
+      .then(p => res.render('admin/participants/editParticipant', {participant: p,
+                                                                   participantid: participantId,
+                                                                   pdfUrl: editUrlHelper.generateStartnumberDownloadUrl(p.start_number),
+                                                                   teamEvent: config.get('teamEvent'),
+                                                                   isAdmin: true}))
       .catch(() =>
         res.render('error', {
           message: "Teilnehmer nicht bekannt",

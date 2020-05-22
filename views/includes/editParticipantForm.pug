@@ -1,6 +1,10 @@
 script(src='/javascript/moment.min.js')
-h1 Angaben ändern
+h3
+  a(href=pdfUrl) Startnummer runterladen
+
+h2 Angaben ändern
 form#editParticipantForm(method='POST', action=formAction)
+
   .row
     .six.columns.padding
       label(for='firstname') Vorname:
@@ -37,15 +41,6 @@ form#editParticipantForm(method='POST', action=formAction)
             option(value='relaxed', selected=(participant.goal === 'relaxed')) Ich möchte gerne mitlaufen, aber ohne Stress in ruhigem Tempo.
             option(value='ambitious', selected=(participant.goal === 'ambitious')) Ich möchte schnell und sportlich laufen / Die Zeit ist mir wichtig.
 
-  .row
-    if !teamEvent
-        .six.columns.padding
-          label Dein Startblock:
-          p#startBlock #{participant.start_block}
-  .row
-    .six.columns.padding
-      label Deine Startnummer:
-      p#startNumber #{participant.start_number}
 
   .row.seconds
     .six.columns.padding
