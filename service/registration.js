@@ -15,7 +15,6 @@ const couponcodes = require('../service/couponcodes');
 const startNumbers = require('../service/startNumbers');
 const tokens = require('../service/tokens');
 const tshirts = require('../service/tshirts');
-
 const editUrlHelper = require('../domain/editUrlHelper');
 
 const registration = {};
@@ -43,7 +42,9 @@ registration.confirm = (participantId) => {
       participants.get.byId(participantId)
         .then(result => {
           pug.renderFile('views/admin/paymentValidation/text.pug',
-            {name: result.firstname, editUrl: editUrlHelper.generateUrl(result.secureid)},
+            {name: result.firstname,
+              pdfUrl: editUrlHelper.generateStartnumberDownloadUrl(result.start_number),
+              editUrl: editUrlHelper.generateUrl(result.secureid)},
             (error, html) =>
               mails.sendEmail(result.email, 'Lauf gegen Rechts: Zahlung erhalten', html, error)
           );
