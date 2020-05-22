@@ -623,7 +623,7 @@ describe('participants service', () => {
           expect(mails.sendEmail).toHaveBeenCalledTimes(1);
           expect(mails.sendStatusEmail).toHaveBeenCalledTimes(1);
           let content = mails.sendEmail.calls.mostRecent().args[2];
-          expect(content).toMatch(/Liebe/);
+          expect(content).toMatch(/FORZA/);
           done();
         })
         .catch(done.fail);

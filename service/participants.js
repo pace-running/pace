@@ -352,7 +352,7 @@ function sleep(ms){
 }
 
 async function sendInfoMailTo(participant) {
-  mails.sendStatusEmail(participant, 'Lauf gegen Rechts - Infos zum Lauf', 'views/participants/bulkmail.pug');
+  mails.sendStatusEmail(participant, 'Lauf gegen Rechts - Startnummern', 'views/participants/bulkmail.pug');
 }
 
 module.exports = participants;

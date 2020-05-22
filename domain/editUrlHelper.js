@@ -14,6 +14,9 @@ const editUrlHelper = (() => {
     },
     generateSecureID: () => {
       return crypto.randomBytes(32).toString('hex');
+    },
+    generateStartnumberDownloadUrl: (startnumber) => {
+      return `${config.get('pace-url')}/pdf/startnumber/` + startnumber ;
     }
   };
 })();
