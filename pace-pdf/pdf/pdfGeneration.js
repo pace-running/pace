@@ -63,7 +63,7 @@ pdfGeneration.createStartNumberPage = (doc, startNumberData) => {
   doc.image(__dirname + pathToLogoRight, 475, 10, {fit: [100, 100]});
 
   doc.font('Helvetica-Bold').fontSize(200).fillColor(startNumberData.startBlockColor).text(startNumberData.startNumber, 0, 120, {align: 'center'});
-  doc.fontSize(40).fillColor('white').text(startNumberData.firstname.substring(0, 17)+ ' - ' + startNumberData.team.substring(0,25), 0, 290, {align: 'center'});
+  doc.fontSize(40).fillColor('white').text(startNumberData.firstname.substring(0, 17)+ ' - ' + startNumberData.team.substring(0,45), 0, 290, {align: 'center'});
 
   if(startNumberData.tshirt) {
     doc.fontSize(12).fillColor('green').text(startNumberData.tshirt.size + ' ' + startNumberData.tshirt.model, 10, 10);
